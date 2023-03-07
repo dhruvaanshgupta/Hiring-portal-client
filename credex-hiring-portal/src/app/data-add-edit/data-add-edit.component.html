@@ -1,0 +1,47 @@
+<div mat-dialog-title>
+    <h1>College Form</h1>
+</div>
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" placeholder="Ex. xyz" formControlName="Name">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Location</mat-label>
+                <input matInput type="text" placeholder="Ex. abc" formControlName="Location">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Course Offered</mat-label>
+                <input matInput type="text" placeholder="Ex. B.Tech" formControlName="CourseOffered">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Contact</mat-label>
+                <input matInput type="email" placeholder="Ex. abc@example.com" formControlName="Contact">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Current Accrediation</mat-label>
+                <input matInput type="text" placeholder="Ex. AKTU" formControlName="CurrentAccrediation">
+            </mat-form-field>
+        </div>
+
+        
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Save'}}</button>
+    </div>
+</form>
