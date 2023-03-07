@@ -41,7 +41,31 @@ private COLLEGES_DATA = [
     CourseOffered: 'Business Administration',
     Contact: 'xyz@example.com',
     CurrentAccrediation: 'Not Accredited',
+  },{
+    id: 3,
+    Name: 'EFG University',
+    Location: 'Chicago',
+    CourseOffered: 'Nursing',
+    Contact: 'efg@example.com',
+    CurrentAccrediation: 'Accredited',
   },
+  {
+    id: 4,
+    Name: 'PQR College',
+    Location: 'Miami',
+    CourseOffered: 'Hospitality Management',
+    Contact: 'pqr@example.com',
+    CurrentAccrediation: 'Accredited',
+  },
+  {
+    id: 5,
+    Name: 'LMN University',
+    Location: 'Seattle',
+    CourseOffered: 'Environmental Science',
+    Contact: 'lmn@example.com',
+    CurrentAccrediation: 'Accredited',
+  }
+  
   // add more objects as needed
 ];
 
