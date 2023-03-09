@@ -24,12 +24,20 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { StudentsComponent } from './modules/students/students.component';
+import { DrivesComponent } from './modules/drives/drives.component';
+import { StudentDetailsComponent } from './student-details/student-details.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DataAddEditComponent,
+    StudentsComponent,
+    DrivesComponent,
+    StudentDetailsComponent,
+
   ],
   imports: [
     BrowserModule,

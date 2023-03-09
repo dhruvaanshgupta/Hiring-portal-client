@@ -29,12 +29,13 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
+
 @NgModule({
   declarations: [
     DefaultComponent,
     DashboardComponent,
     CollegesComponent
-    
+
   ],
   imports: [
     CommonModule,
@@ -61,7 +62,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatSortModule,
     MatSnackBarModule,
 
-    
+
+
   ],
   providers: [
     DashboardService

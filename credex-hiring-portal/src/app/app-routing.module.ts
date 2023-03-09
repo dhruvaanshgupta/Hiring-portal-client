@@ -4,6 +4,8 @@ import { DefaultComponent } from './layouts/default/default.component';
 import { CollegesComponent } from './modules/colleges/colleges.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { AuthComponent } from './auth/auth.component';
+import { StudentsComponent } from './modules/students/students.component';
+import { DrivesComponent } from './modules/drives/drives.component';
 
 
 const routes: Routes = [{
@@ -12,10 +14,22 @@ const routes: Routes = [{
   children: [{
     path: '',
     component: DashboardComponent
-  },{
+  },
+    {
     path: 'colleges',
     component: CollegesComponent
-  }]
+    },
+    {
+      path: 'students',
+      component: StudentsComponent
+    },
+    {
+      path: 'drives',
+      component: DrivesComponent
+    }
+
+
+]
 },{
   path: 'auth',
   component: AuthComponent
