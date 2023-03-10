@@ -27,6 +27,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { StudentsComponent } from './modules/students/students.component';
 import { DrivesComponent } from './modules/drives/drives.component';
 import { StudentDetailsComponent } from './student-details/student-details.component';
+import { QuestionaireComponent } from './not in use/questionaire.component';
+import { QuestionsComponent } from './modules/questions/questions.component';
+import { AddQuestionsComponent } from './add-questions/add-questions.component';
 
 
 
@@ -37,6 +40,9 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
     StudentsComponent,
     DrivesComponent,
     StudentDetailsComponent,
+    QuestionaireComponent,
+    QuestionsComponent,
+    AddQuestionsComponent,
 
   ],
   imports: [

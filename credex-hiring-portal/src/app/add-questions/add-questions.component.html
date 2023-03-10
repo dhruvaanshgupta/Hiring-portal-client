@@ -1,0 +1,49 @@
+<div mat-dialog-title class="title">
+  <h1>Questions Panel</h1>
+</div>
+<form>
+  <div mat-dialog-content class="content">
+    <h1>Write your Questions</h1>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <input matInput type="text" placeholder="question" formControlName="question" />
+      </mat-form-field>
+    </div>
+
+    <h1>Add Option 1</h1>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <input matInput type="text" placeholder="option" formControlName="option1" />
+      </mat-form-field>
+    </div>
+
+    <h1>Add Option 2</h1>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <input matInput type="text" placeholder="option" formControlName="option2" />
+      </mat-form-field>
+    </div>
+
+    <h1>Add Option 3</h1>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <input matInput type="email" placeholder="option" formControlName="option3" />
+      </mat-form-field>
+    </div>
+
+    <h1>Add Option 4</h1>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <input matInput type="text" placeholder="option" formControlName="option4" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" [mat-dialog-close]="false">
+      Cancel
+    </button>
+    <button mat-raised-button color="primary" type="submit">
+      Save
+    </button>
+  </div>
+</form>

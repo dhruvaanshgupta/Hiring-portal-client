@@ -1,17 +1,12 @@
 <mat-toolbar color="primary">
-  <span><b>CANDIDATES</b></span>
+  <span><b>MANAGE CANDIDATES</b></span>
   <span class="example-spacer"></span>
 </mat-toolbar>
 
 <div class="main-body">
   <mat-form-field>
     <mat-label>Filter</mat-label>
-    <input
-      matInput
-      (keyup)="applyFilter($event)"
-      placeholder="search student"
-      #input
-    />
+    <input matInput (keyup)="applyFilter($event)" placeholder="search student" #input />
   </mat-form-field>
 
   <div class="table-container">
@@ -77,9 +72,6 @@
       </tr>
     </table>
 
-    <mat-paginator
-      [pageSizeOptions]="[5, 10, 25, 100]"
-      aria-label="Select page of users"
-    ></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
   </div>
 </div>
