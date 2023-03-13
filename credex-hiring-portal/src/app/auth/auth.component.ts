@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormControl,FormControlName,FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr'
+import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 import { NotifierService } from 'angular-notifier';
 
@@ -14,7 +15,9 @@ export class AuthComponent implements OnInit {
   isSignUpMode = false;
 
   constructor(private builder: FormBuilder, private toastr: ToastrService, 
-    private service: AuthService) { }
+    private service: AuthService,  private router: Router) {
+      sessionStorage.clear();
+     }
 
   registerform = this.builder.group({
     firstName: this.builder.control('', Validators.required),
@@ -29,9 +32,10 @@ export class AuthComponent implements OnInit {
       this.service.Proceedregister(this.registerform.value).subscribe({
         next: result => {
           this.toastr.success('Registered successfully');
-          this.toggleMode();
+          
           // Clear the form after successful registration
           this.registerform.reset();
+          this.toggleMode();
         },
         error: err => {
           this.toastr.error('An error occurred while registering');
@@ -47,19 +51,26 @@ export class AuthComponent implements OnInit {
   userdata : any;
 
   loginform = this.builder.group({
-    email:this.builder.control('',Validators.required),
+    emailId:this.builder.control('',Validators.required),
     password:this.builder.control('',Validators.required)
   })
 
   proceedlogin() {
     if (this.loginform.valid) {
-      this.service.Getbycode(this.loginform.value.email).subscribe(res=>{
-        this.userdata = res;
-        console.log(res)
-      })
+      this.service.Getbycode(this.loginform.value.emailId).subscribe((users: any[]) => {
+        const user = users.find(u => u.emailId === this.loginform.value.emailId);
+        console.log(user);
+        if (user && user.password.trim() === this.loginform.value.password.trim()) {
+          sessionStorage.setItem('emailId', user.emailId);
+          sessionStorage.setItem('roleId', user.roleId);
+          this.router.navigate(['']);
+        } else {
+          this.toastr.error('Invalid Credentials');
+        }
+      });
     }
   }
-
+  
   ngOnInit(): void {
     const signInBtn = document.querySelector("#sign-in-btn") as HTMLElement;
     const signUpBtn = document.querySelector("#sign-up-btn") as HTMLElement;

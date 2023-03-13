@@ -5,11 +5,12 @@ import { CollegesComponent } from './modules/colleges/colleges.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { AuthComponent } from './auth/auth.component';
 import { UserRolesComponent } from './modules/user-roles/user-roles.component';
+import { AuthGuard } from './auth/auth.guard';
 
 
 const routes: Routes = [{
   path: '',
-  component: DefaultComponent,
+  component: DefaultComponent,canActivate:[AuthGuard],
   children: [{
     path: '',
     component: DashboardComponent

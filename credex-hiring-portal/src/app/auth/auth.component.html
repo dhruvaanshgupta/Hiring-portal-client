@@ -7,7 +7,7 @@
           <h2 class="title">Sign in</h2>
           <div class="input-field">
             <i class="fas fa-user"></i>
-            <input type="email" placeholder="Email" formControlName="email" />
+            <input type="email" placeholder="Email" formControlName="emailId" />
           </div>
           <div class="input-field">
             <i class="fas fa-lock"></i>
@@ -49,7 +49,7 @@
           <p>
             One step away from joining us!
           </p>
-          <button class="btn transparent" (click)="toggleMode()" id="sign-up-btn" *ngIf="!isSignUpMode">
+          <button class="btn transparent" id="sign-up-btn">
             Sign up
           </button>
         </div>

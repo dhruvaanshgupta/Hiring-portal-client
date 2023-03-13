@@ -1,6 +1,22 @@
 {
   "user": [
-    
-    
+    {
+      "firstName": "dhruv",
+      "lastName": "gupta",
+      "password": "Dhruv@123456789",
+      "contact": 8130261903,
+      "emailId": "dhruv5252@gmail.com",
+      "roleId": "3",
+      "id": 1
+    },
+    {
+      "firstName": "adsa",
+      "lastName": "dasda",
+      "password": "Dhruv@12345678",
+      "contact": 8130261903,
+      "emailId": "dhurv5252@gmail.com",
+      "roleId": "",
+      "id": 2
+    }
   ]
 }
