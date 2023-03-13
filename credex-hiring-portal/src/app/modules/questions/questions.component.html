@@ -3,9 +3,9 @@
   <span class="example-spacer"></span>
 </mat-toolbar>
 
-<div class="btn-container">
-  <mat-dialog-actions align="center">
-    <button mat-raised-button class="add-questions-btn" color="primary" (click)="openDialog()">
+<div class="container" align="center">
+  <mat-dialog-actions >
+    <button mat-raised-button class="add-questions-btn" color="primary" [routerLink]="'/add-questions'">
       Add questions
     </button>
   </mat-dialog-actions>

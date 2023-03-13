@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DefaultComponent } from './layouts/default/default.component';
 import { CollegesComponent } from './modules/colleges/colleges.component';
@@ -7,6 +7,7 @@ import { AuthComponent } from './auth/auth.component';
 import { StudentsComponent } from './modules/students/students.component';
 import { DrivesComponent } from './modules/drives/drives.component';
 import { QuestionsComponent } from './modules/questions/questions.component';
+import { AddQuestionsComponent } from './add-questions/add-questions.component';
 
 const routes: Routes = [
   {
@@ -33,6 +34,10 @@ const routes: Routes = [
         path: 'questions',
         component: QuestionsComponent,
       },
+      {
+        path: 'add-questions',
+        component: AddQuestionsComponent
+      }
     ],
   },
   {

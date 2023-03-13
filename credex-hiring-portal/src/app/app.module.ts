@@ -30,6 +30,8 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
 import { QuestionaireComponent } from './not in use/questionaire.component';
 import { QuestionsComponent } from './modules/questions/questions.component';
 import { AddQuestionsComponent } from './add-questions/add-questions.component';
+import { MatCardModule } from '@angular/material/card';
+
 
 
 
@@ -67,6 +69,7 @@ import { AddQuestionsComponent } from './add-questions/add-questions.component';
     MatPaginatorModule,
     MatSortModule,
     MatSnackBarModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
