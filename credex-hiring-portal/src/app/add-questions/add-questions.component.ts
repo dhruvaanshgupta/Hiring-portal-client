@@ -22,5 +22,18 @@ export class AddQuestionsComponent {
   }
   constructor(
     private _route: ActivatedRoute
-  ) {}
+  ) { }
+
+  formSubmit() {
+    if (this.question.content.trim() == '' || this.question.content == null)
+      return;
+    if (this.question.option1.trim() == '' || this.question.option1 == null)
+      return;
+    if (this.question.option2.trim() == '' || this.question.option1 == null)
+      return;
+ }
+
+  
+
+
 }

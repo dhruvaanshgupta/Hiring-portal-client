@@ -31,6 +31,7 @@ import { QuestionaireComponent } from './not in use/questionaire.component';
 import { QuestionsComponent } from './modules/questions/questions.component';
 import { AddQuestionsComponent } from './add-questions/add-questions.component';
 import { MatCardModule } from '@angular/material/card';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -69,7 +70,8 @@ import { MatCardModule } from '@angular/material/card';
     MatPaginatorModule,
     MatSortModule,
     MatSnackBarModule,
-    MatCardModule
+    MatCardModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
