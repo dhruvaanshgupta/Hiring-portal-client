@@ -18,6 +18,16 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { PieComponent } from './widgets/pie/pie.component';
 import { AnnouncementComponent } from './widgets/announcement/announcement.component';
 import { FormsModule } from '@angular/forms';
+import {MatInputModule} from "@angular/material/input";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatTableModule} from "@angular/material/table"
+import {MatPaginatorModule} from "@angular/material/paginator"
+import {MatSortModule} from "@angular/material/sort"
+import {MatDialogModule} from "@angular/material/dialog"
+import {MatSelectModule} from "@angular/material/select"
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import { UpdatepopupComponent } from './updatepopup/updatepopup.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -28,7 +38,8 @@ import { FormsModule } from '@angular/forms';
     CardComponent,
     AreaComponent,
     PieComponent,
-    AnnouncementComponent
+    AnnouncementComponent,
+    UpdatepopupComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +53,18 @@ import { FormsModule } from '@angular/forms';
     MatCardModule,
     RouterModule,
     HighchartsChartModule,
-    FormsModule
+    FormsModule,
+    MatInputModule,
+    MatCardModule,
+    MatRadioModule,
+    MatButtonModule,
+    MatTableModule,MatPaginatorModule,
+    MatSortModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatCheckboxModule,
+    ReactiveFormsModule
+    
   ],
   exports:[
     HeaderComponent,
