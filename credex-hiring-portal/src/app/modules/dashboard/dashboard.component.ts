@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Observable,of } from 'rxjs';
 import { DashboardService } from '../dashboard.service';
 
 @Component({
@@ -7,14 +8,17 @@ import { DashboardService } from '../dashboard.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  bigChart = [];
+  
   cards = [];
-  pieChart = [];
+  pieChart: Observable<any[]>;
 
   constructor(private dashboardService: DashboardService) { }
 
   ngOnInit() {
     this.cards = this.dashboardService.cards();
     this.pieChart = this.dashboardService.pieChart();
+      this.pieChart.subscribe(data => {
+        console.log(data);
+      });
+    }
   }
-}

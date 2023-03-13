@@ -24,12 +24,14 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { UserRolesComponent } from './modules/user-roles/user-roles.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DataAddEditComponent,
+    UserRolesComponent,
   ],
   imports: [
     BrowserModule,
