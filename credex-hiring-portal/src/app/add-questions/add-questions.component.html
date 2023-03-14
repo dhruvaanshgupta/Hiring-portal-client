@@ -62,16 +62,11 @@
         </mat-card-header>
         <mat-card-content>
           <form (submit)="formSubmit()">
+
             <!-- content field-->
             <mat-form-field class="w100">
               <mat-label>Write question content</mat-label>
-              <textarea
-                rows="8"
-                [(ngModel)]="question.content"
-                name="content"
-                matInput
-                placeholder=""
-              ></textarea>
+              <textarea rows="8" [(ngModel)]="question.content" name="content" matInput placeholder=""></textarea>
             </mat-form-field>
 
             <!-- options -->
@@ -80,12 +75,7 @@
                 <!--option 1-->
                 <mat-form-field class="w50">
                   <mat-label>Enter Option number 1</mat-label>
-                  <input
-                    [(ngModel)]="question.option1"
-                    name="option1"
-                    type="text"
-                    matInput
-                  />
+                  <input [(ngModel)]="question.option1" name="option1" type="text" matInput />
                 </mat-form-field>
               </div>
 
@@ -93,12 +83,7 @@
                 <!--option 2-->
                 <mat-form-field class="w50">
                   <mat-label>Enter Option number 2</mat-label>
-                  <input
-                    [(ngModel)]="question.option2"
-                    name="option2"
-                    type="text"
-                    matInput
-                  />
+                  <input [(ngModel)]="question.option2" name="option2" type="text" matInput />
                 </mat-form-field>
               </div>
             </div>
@@ -108,12 +93,7 @@
                 <!--option 3-->
                 <mat-form-field class="w50">
                   <mat-label>Enter Option number 3</mat-label>
-                  <input
-                    [(ngModel)]="question.option3"
-                    name="option3"
-                    type="text"
-                    matInput
-                  />
+                  <input [(ngModel)]="question.option3" name="option3" type="text" matInput />
                 </mat-form-field>
               </div>
 
@@ -121,14 +101,9 @@
                 <!--option 4-->
                 <mat-form-field class="w50">
                   <mat-label>Enter Option number 4</mat-label>
-                  <input
-                    [(ngModel)]="question.option4"
-                    name="option4"
-                    type="text"
-                    matInput
-                  />
+                  <input [(ngModel)]="question.option4" name="option4" type="text" matInput />
                 </mat-form-field>
-                <br/>
+                <br />
                 <!--Select Answer-->
 
                 <mat-form-field>

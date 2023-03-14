@@ -32,7 +32,12 @@ import { QuestionsComponent } from './modules/questions/questions.component';
 import { AddQuestionsComponent } from './add-questions/add-questions.component';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
-
+import { FinalReportsComponent } from './final-reports/final-reports.component';
+import { MatListModule } from '@angular/material/list';
+import { QuestionPaper1Component } from './question-paper1/question-paper1.component';
+import { QuestionPaper2Component } from './question-paper2/question-paper2.component';
+import { QuestionPaper3Component } from './question-paper3/question-paper3.component';
+import { MatCardActions } from '@angular/material/card';
 
 
 
@@ -46,6 +51,11 @@ import { FormsModule } from '@angular/forms';
     QuestionaireComponent,
     QuestionsComponent,
     AddQuestionsComponent,
+    FinalReportsComponent,
+    QuestionPaper1Component,
+    QuestionPaper2Component,
+    QuestionPaper3Component,
+
 
   ],
   imports: [
@@ -71,7 +81,9 @@ import { FormsModule } from '@angular/forms';
     MatSortModule,
     MatSnackBarModule,
     MatCardModule,
-    FormsModule
+    FormsModule,
+    MatListModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

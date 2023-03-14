@@ -8,6 +8,10 @@ import { StudentsComponent } from './modules/students/students.component';
 import { DrivesComponent } from './modules/drives/drives.component';
 import { QuestionsComponent } from './modules/questions/questions.component';
 import { AddQuestionsComponent } from './add-questions/add-questions.component';
+import { FinalReportsComponent } from './final-reports/final-reports.component';
+import { QuestionPaper1Component } from './question-paper1/question-paper1.component';
+import { QuestionPaper2Component } from './question-paper2/question-paper2.component';
+import { QuestionPaper3Component } from './question-paper3/question-paper3.component';
 
 const routes: Routes = [
   {
@@ -36,8 +40,24 @@ const routes: Routes = [
       },
       {
         path: 'add-questions',
-        component: AddQuestionsComponent
-      }
+        component: AddQuestionsComponent,
+      },
+      {
+        path: 'approval',
+        component: FinalReportsComponent,
+      },
+      {
+        path: 'question-paper1',
+        component: QuestionPaper1Component,
+      },
+      {
+        path: 'question-paper2',
+        component: QuestionPaper2Component,
+      },
+      {
+        path: 'question-paper3',
+        component: QuestionPaper3Component,
+      },
     ],
   },
   {
@@ -50,4 +70,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

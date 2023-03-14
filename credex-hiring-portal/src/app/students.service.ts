@@ -1,10 +1,14 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StudentService {
+
+
   students = [
     {
       id: 1,
@@ -73,6 +77,10 @@ export class StudentService {
       Experience: '4 years',
     }
   ];
-  constructor() {}
+  constructor(private _http: HttpClient) { }
+
+  getStudentList(): Observable<any> {
+    return this._http.get('');
+  }
 }
 

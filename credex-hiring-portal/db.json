@@ -1,9 +1,12 @@
 {
-  "users": [
+  "question": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "content": "Which is not a programming language",
+      "option1": "Java",
+      "option2": "c#",
+      "option3": "python",
+      "option4": "html"
+
     }
   ]
 }

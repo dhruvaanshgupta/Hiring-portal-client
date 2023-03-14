@@ -2,7 +2,7 @@ import { Component,OnInit,ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatIcon } from '@angular/material/icon'; 
+import { MatIcon } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { DataAddEditComponent } from '../../data-add-edit/data-add-edit.component';
 import { CoreService } from '../../core/core.service'
@@ -27,6 +27,9 @@ export class CollegesComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+
+  public getJsonValue: any;
+  public postJsonVale: any;
 
   constructor(
     private _dialog: MatDialog,
@@ -92,4 +95,8 @@ export class CollegesComponent implements OnInit {
       },
     });
   }
+  
+
+
 }
+
