@@ -20,7 +20,7 @@
 
 <h2 matSubheader>HR Approval</h2>
 
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/user-roles">
+    <a mat-list-item *ngIf="isadminuser" routerLinkActive="list-item-active" routerLink="/user-roles">
 
         User Roles
     </a>

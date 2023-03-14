@@ -15,11 +15,20 @@ export class AuthService {
   Getbycode(code:any){
     return this.http.get(`${this.apiurl}?emailId=${code}`);
   }
+
+  GetUserbyCode(emailId:any){
+    return this.http.get(this.apiurl+'/'+emailId);
+  }
+
+  GetAllRole(){
+    return this.http.get('http://localhost:3000/role');
+  }
+
   Proceedregister(inputdata?:any){
     return this.http.post(this.apiurl,inputdata);
   }
-  Updateuser(code:any,inputdata:any){
-    return this.http.put(this.apiurl+'/'+code,inputdata);
+  Updateuser(id:any,inputdata:any){
+    return this.http.put(this.apiurl+'/'+id,inputdata);
   }
 
   IsloggedIn(){

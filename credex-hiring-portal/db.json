@@ -6,7 +6,7 @@
       "password": "Dhruv@123456789",
       "contact": 8130261903,
       "emailId": "dhruv5252@gmail.com",
-      "roleId": "3",
+      "roleId": "Admin",
       "id": 1
     },
     {
@@ -18,5 +18,20 @@
       "roleId": "",
       "id": 2
     }
+  ],
+  "role": [
+    {
+    "code": "1",
+    "name": "Admin"
+    },
+    {
+      "code": "2",
+      "name": "Recruiter"
+      },
+      {
+        "code": "3",
+        "name": "Student"
+        }
+
   ]
 }
