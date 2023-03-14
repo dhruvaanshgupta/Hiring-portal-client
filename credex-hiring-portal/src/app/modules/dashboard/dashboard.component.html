@@ -1,6 +1,8 @@
-<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
-    <mat-card fxFlex="25">
-        <app-widget-card label="Total Colleges" total="200" percentage="50" [data]="cards"></app-widget-card>
+<ng-container *ngIf="userRole === 'Admin'">
+
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+        <mat-card fxFlex="25">
+            <app-widget-card label="Total Colleges" total="200" percentage="50" [data]="cards"></app-widget-card>
     </mat-card>
     <mat-card fxFlex="25">
         <app-widget-card label="Total Student Enrolled" total="15k" percentage="40" [data]="cards"></app-widget-card>
@@ -19,7 +21,7 @@
 <div>
     <div fxFlex="50">
         <app-widget-pie></app-widget-pie>
-</div>
+    </div>
     <br>
     <mat-divider></mat-divider>
     <br>
@@ -27,6 +29,12 @@
       <app-widget-announcement></app-widget-announcement>
     </div>
   </div>
+</ng-container>
+<ng-container *ngIf="userRole === 'Student'">
+    <h1>hi for testing</h1>
+
+</ng-container>
   
-
-
+  
+  
+  

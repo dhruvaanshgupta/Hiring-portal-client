@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,12 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent {
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
-  constructor(){}
+  constructor(private router: Router){}
+  logout(){
+    sessionStorage.clear();
+    localStorage.clear();
+    this.router.navigate(['auth']);
+  }
 
   ngOnInit(){}
 

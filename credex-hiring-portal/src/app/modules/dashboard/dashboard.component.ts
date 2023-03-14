@@ -8,6 +8,7 @@ import { DashboardService } from '../dashboard.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  public userRole = '';
   
   cards = [];
   pieChart: Observable<any[]>;
@@ -20,5 +21,6 @@ export class DashboardComponent implements OnInit {
       this.pieChart.subscribe(data => {
         console.log(data);
       });
+      this.userRole = sessionStorage.getItem('roleId');
     }
   }

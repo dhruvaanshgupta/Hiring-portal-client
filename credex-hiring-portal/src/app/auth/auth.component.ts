@@ -95,7 +95,9 @@ export class AuthComponent implements OnInit {
           ) {
             sessionStorage.setItem('emailId', user.emailId);
             sessionStorage.setItem('roleId', user.roleId);
-            this.router.navigate(['']);
+            this.service.navigate();
+            //funtion call karega jo services mein karna
+            
           } else {
             this.toastr.error('Invalid Credentials');
           }
