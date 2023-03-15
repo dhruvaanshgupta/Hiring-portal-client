@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,12 +31,12 @@ import { QuestionsComponent } from './modules/questions/questions.component';
 import { AddQuestionsComponent } from './add-questions/add-questions.component';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
-import { FinalReportsComponent } from './final-reports/final-reports.component';
 import { MatListModule } from '@angular/material/list';
 import { QuestionPaper1Component } from './question-paper1/question-paper1.component';
 import { QuestionPaper2Component } from './question-paper2/question-paper2.component';
 import { QuestionPaper3Component } from './question-paper3/question-paper3.component';
 import { MatCardActions } from '@angular/material/card';
+import { FinalReportsComponent } from './final-reports/final-reports.component';
 
 
 
@@ -51,10 +50,10 @@ import { MatCardActions } from '@angular/material/card';
     QuestionaireComponent,
     QuestionsComponent,
     AddQuestionsComponent,
-    FinalReportsComponent,
     QuestionPaper1Component,
     QuestionPaper2Component,
     QuestionPaper3Component,
+    FinalReportsComponent
 
 
   ],
@@ -83,7 +82,7 @@ import { MatCardActions } from '@angular/material/card';
     MatCardModule,
     FormsModule,
     MatListModule,
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

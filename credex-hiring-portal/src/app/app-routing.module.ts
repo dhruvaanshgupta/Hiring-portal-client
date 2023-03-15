@@ -13,6 +13,7 @@ import { QuestionPaper1Component } from './question-paper1/question-paper1.compo
 import { QuestionPaper2Component } from './question-paper2/question-paper2.component';
 import { QuestionPaper3Component } from './question-paper3/question-paper3.component';
 
+
 const routes: Routes = [
   {
     path: '',
@@ -58,6 +59,10 @@ const routes: Routes = [
         path: 'question-paper3',
         component: QuestionPaper3Component,
       },
+      {
+        path: 'final-reports',
+        component: FinalReportsComponent
+      }
     ],
   },
   {
