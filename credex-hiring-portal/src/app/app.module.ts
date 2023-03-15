@@ -25,6 +25,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { UserRolesComponent } from './modules/user-roles/user-roles.component';
+import { UserAddFormComponent } from './user-add-form/user-add-form.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { UserRolesComponent } from './modules/user-roles/user-roles.component';
     AppComponent,
     DataAddEditComponent,
     UserRolesComponent,
+    UserAddFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,57 @@
+<div mat-dialog-title>
+    <h1>Registration Form</h1>
+</div>
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input matInput type="text" placeholder="Ex. xyz" formControlName="firstName">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput type="text" placeholder="Ex. abc" formControlName="lastName">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>E-mail</mat-label>
+                <input matInput type="email" placeholder="Ex. abc@gmail.com" formControlName="emailId">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Contact</mat-label>
+                <input matInput type="number" placeholder="Ex. 1234567890" formControlName="contact">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Abc@123456" formControlName="password">
+            </mat-form-field>
+        </div>
+
+        <mat-form-field>
+            <mat-label>Role</mat-label>
+            <mat-select formControlName="roleId">
+                <mat-option value=''>Select Role</mat-option>
+                <mat-option *ngFor="let item of rolelist" [value]="item.code">
+                    {{item.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">{{'Save'}}</button>
+    </div>
+</form>

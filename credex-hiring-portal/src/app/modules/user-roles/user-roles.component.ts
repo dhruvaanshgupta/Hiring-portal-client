@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdatepopupComponent } from 'src/app/shared/updatepopup/updatepopup.component';
 import { data } from 'jquery';
+import { UserAddFormComponent } from 'src/app/user-add-form/user-add-form.component';
 
 @Component({
   selector: 'app-user-roles',
@@ -61,5 +62,16 @@ export class UserRolesComponent {
 
   opendialog() {
     
+  }
+  
+  openAddEntryForm(){
+    const dialogRef = this.dialog.open(UserAddFormComponent);
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.Loaduser();
+        }
+      },
+    });
   }
 }
