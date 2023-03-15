@@ -7,9 +7,13 @@ import { AppComponent } from 'src/app/app.component';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent extends AppComponent implements OnInit {
-  public role = '';
+  public emailId: string = '';
+  public role: string = '';
+
   ngOnInit(): void {
-  
+    this.emailId = sessionStorage.getItem('emailId') || '';
+    this.role = sessionStorage.getItem('roleId') || '';
+    
   }
   
 }

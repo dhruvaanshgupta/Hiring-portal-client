@@ -1,30 +1,32 @@
 <mat-nav-list>
     <div class="profile-card">
         <div class="header">
-            <h2 class="welcome">WELCOME!</h2>
-            <h4>Admin</h4>
+            <img mat-card-image style="width: 30%; height: auto; object-fit: cover;" src="../../../../assets/img/userLogo.png" alt="userLogo">
+            <h2 style="font-weight: 400;">{{this.emailId}}</h2>
+            <h4 style="color: lightgrey;">{{this.role}}</h4>
         </div>
 
     </div>
 
     <mat-divider></mat-divider>
-    <h2 matSubheader>Management</h2>
+    <h2 matSubheader *ngIf="isadminuser" style="padding-left: 12px;">Management</h2>
+    <h2 matSubheader *ngIf="!isadminuser" style="padding-left: 12px;">Panel</h2>
 
     <a mat-list-item routerLinkActive="list-item-active"  routerLink="/dashboard">Dashboard</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/colleges">Colleges</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/candidates">Candidates</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/drives">Drives</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/questions">Questionnaire</a>
+    <a mat-list-item *ngIf="isadminuser" routerLinkActive="list-item-active" routerLink="/colleges">Colleges</a>
+    <a mat-list-item *ngIf="isadminuser" routerLinkActive="list-item-active" routerLink="/candidates">Candidates</a>
+    <a mat-list-item *ngIf="isadminuser" routerLinkActive="list-item-active" routerLink="/drives">Drives</a>
+    <a mat-list-item *ngIf="isadminuser" routerLinkActive="list-item-active" routerLink="/questions">Questionnaire</a>
 
-<mat-divider></mat-divider>
+<mat-divider *ngIf="isadminuser"></mat-divider>
 
-<h2 matSubheader>HR Approval</h2>
+<h2 matSubheader *ngIf="isadminuser" style="padding-left: 12px;">HR Approval</h2>
 
     <a mat-list-item *ngIf="isadminuser" routerLinkActive="list-item-active" routerLink="/user-roles">
 
         User Roles
     </a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/approval">
+    <a mat-list-item *ngIf="isadminuser" routerLinkActive="list-item-active" routerLink="/approval">
 
         Final Reports
     </a>
