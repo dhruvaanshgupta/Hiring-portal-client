@@ -6,7 +6,7 @@ import {ToastrModule } from 'ngx-toastr'
 import { NotifierModule } from 'angular-notifier';
 
 @NgModule({
-  declarations: [AuthComponent],
+  declarations: [AuthComponent ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule, ToastrModule, NotifierModule],
   exports: [AuthComponent],
 })

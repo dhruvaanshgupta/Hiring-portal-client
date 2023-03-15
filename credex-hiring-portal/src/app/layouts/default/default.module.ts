@@ -28,6 +28,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ToastrModule } from 'ngx-toastr';  
+import { ExamPanelComponent } from 'src/app/modules/exam-panel/exam-panel.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { ToastrModule } from 'ngx-toastr';
     DefaultComponent,
     DashboardComponent,
     CollegesComponent,
+    ExamPanelComponent
     
   ],
   imports: [

@@ -26,6 +26,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { UserRolesComponent } from './modules/user-roles/user-roles.component';
 import { UserAddFormComponent } from './user-add-form/user-add-form.component';
+import { ExamPanelComponent } from './modules/exam-panel/exam-panel.component';
+import { ForbiddenComponent } from './modules/forbidden/forbidden.component';
 
 
 @NgModule({
@@ -34,6 +36,7 @@ import { UserAddFormComponent } from './user-add-form/user-add-form.component';
     DataAddEditComponent,
     UserRolesComponent,
     UserAddFormComponent,
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,
