@@ -1,52 +1,3 @@
-<!--div mat-dialog-title class="title">
-  <h1>Questions Panel</h1>
-</div>
-<form>
-  <div mat-dialog-content class="content">
-    <h1>Write your Questions</h1>
-    <div class="row">
-      <mat-form-field appearance="outline">
-        <input matInput type="text" placeholder="question" formControlName="question" />
-      </mat-form-field>
-    </div>
-
-    <h1>Add Option 1</h1>
-    <div class="row">
-      <mat-form-field appearance="outline">
-        <input matInput type="text" placeholder="option" formControlName="option1" />
-      </mat-form-field>
-    </div>
-
-    <h1>Add Option 2</h1>
-    <div class="row">
-      <mat-form-field appearance="outline">
-        <input matInput type="text" placeholder="option" formControlName="option2" />
-      </mat-form-field>
-    </div>
-
-    <h1>Add Option 3</h1>
-    <div class="row">
-      <mat-form-field appearance="outline">
-        <input matInput type="email" placeholder="option" formControlName="option3" />
-      </mat-form-field>
-    </div>
-
-    <h1>Add Option 4</h1>
-    <div class="row">
-      <mat-form-field appearance="outline">
-        <input matInput type="text" placeholder="option" formControlName="option4" />
-      </mat-form-field>
-    </div>
-  </div>
-  <div mat-dialog-actions class="action">
-    <button mat-raised-button type="button" [mat-dialog-close]="false">
-      Cancel
-    </button>
-    <button mat-raised-button color="primary" type="submit">
-      Save
-    </button>
-  </div>
-</form-->
 <div class="bootstrap-wrapper">
   <div class="row">
     <div class="col-md-12">
@@ -62,17 +13,13 @@
         </mat-card-header>
         <mat-card-content>
           <form (submit)="formSubmit()">
-
-            <!-- content field-->
             <mat-form-field class="w100">
               <mat-label>Write question content</mat-label>
               <textarea rows="8" [(ngModel)]="question.content" name="content" matInput placeholder=""></textarea>
             </mat-form-field>
 
-            <!-- options -->
             <div class="row">
               <div class="col-md-6">
-                <!--option 1-->
                 <mat-form-field class="w50">
                   <mat-label>Enter Option number 1</mat-label>
                   <input [(ngModel)]="question.option1" name="option1" type="text" matInput />
@@ -80,7 +27,6 @@
               </div>
 
               <div class="col-md-6">
-                <!--option 2-->
                 <mat-form-field class="w50">
                   <mat-label>Enter Option number 2</mat-label>
                   <input [(ngModel)]="question.option2" name="option2" type="text" matInput />
@@ -90,7 +36,6 @@
 
             <div class="row">
               <div class="col-md-6">
-                <!--option 3-->
                 <mat-form-field class="w50">
                   <mat-label>Enter Option number 3</mat-label>
                   <input [(ngModel)]="question.option3" name="option3" type="text" matInput />
@@ -98,21 +43,19 @@
               </div>
 
               <div class="col-md-6">
-                <!--option 4-->
                 <mat-form-field class="w50">
                   <mat-label>Enter Option number 4</mat-label>
                   <input [(ngModel)]="question.option4" name="option4" type="text" matInput />
                 </mat-form-field>
                 <br />
-                <!--Select Answer-->
 
                 <mat-form-field>
                   <mat-label>Select Answer</mat-label>
                   <mat-select [(ngModel)]="question.answer" name="answer">
-                    <mat-option *ngIf="question.option1" [value]="question.option1">{{question.option1}}</mat-option>
-                    <mat-option *ngIf="question.option2" [value]="question.option2">{{question.option2}}</mat-option>
-                    <mat-option *ngIf="question.option3" [value]="question.option3">{{question.option3}}</mat-option>
-                    <mat-option *ngIf="question.option4" [value]="question.option4">{{question.option4}}</mat-option>
+                    <mat-option *ngIf="question.option1" [value]="question.option1">{{ question.option1 }}</mat-option>
+                    <mat-option *ngIf="question.option2" [value]="question.option2">{{ question.option2 }}</mat-option>
+                    <mat-option *ngIf="question.option3" [value]="question.option3">{{ question.option3 }}</mat-option>
+                    <mat-option *ngIf="question.option4" [value]="question.option4">{{ question.option4 }}</mat-option>
                   </mat-select>
                 </mat-form-field>
 
@@ -128,4 +71,11 @@
   </div>
 </div>
 
-<!-- {{ question | json }} -->
+<br>
+
+<div class="container">
+  <input (change)="selectFile($event)" type="file" />
+  <button (click)="(uploadFile)" class="btn" mat-raised-button color="primary">
+    Upload
+  </button>
+</div>

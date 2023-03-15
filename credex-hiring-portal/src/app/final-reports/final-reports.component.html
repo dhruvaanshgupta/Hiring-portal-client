@@ -8,8 +8,8 @@
 
 <div class="main-body">
   <mat-form-field>
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="search student" #input />
+    <mat-label>Search</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="search reports" #input />
   </mat-form-field>
 
   <div class="table-container">
@@ -39,9 +39,28 @@
         <td mat-cell *matCellDef="let student">{{ student.technical_score2}}</td>
       </ng-container>
 
+      <ng-container matColumnDef="score_card">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Score Card</th>
+        <td mat-cell *matCellDef="let student">{{ student.score_card }}</td>
+      </ng-container>
+
+
+
       <ng-container matColumnDef="feedback">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Feedback</th>
         <td mat-cell *matCellDef="let student">{{ student.feedback }}</td>
+      </ng-container>
+
+      <!-- <ng-container matColumnDef="profile_details">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Profile Details</th>
+        <button mat-raised-button class="student-details-btn"> Student Details </button>
+      </ng-container> -->
+
+      <ng-container matColumnDef="details">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Studnt Profile Details</th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-raised-button color="primary"> Open details </button>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

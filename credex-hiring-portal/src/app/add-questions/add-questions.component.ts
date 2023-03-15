@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -11,6 +12,7 @@ import { MatCardModule } from '@angular/material/card';
   styleUrls: ['./add-questions.component.scss']
 })
 export class AddQuestionsComponent {
+[x: string]: any;
 
   question = {
     content: '',
@@ -21,8 +23,13 @@ export class AddQuestionsComponent {
     answer: ''
   }
   constructor(
-    private _route: ActivatedRoute
+    private _route: ActivatedRoute,
+    private http: HttpClient
   ) { }
+
+  ngOnInit(): void { }
+
+  file: any;
 
   formSubmit() {
     if (this.question.content.trim() == '' || this.question.content == null)
@@ -33,7 +40,18 @@ export class AddQuestionsComponent {
       return;
  }
 
-  
+  fileUploadUrl = "";
+  selectFile(event) {
+    this.file = event.target.files[0];
+    console.log(this.file);
+    }
+
+  uploadFile() {
+    let formData = new FormData();
+    formData.append('file', this.file);
+
+    this.http.post(this.fileUploadUrl, formData).subscribe();
+  }
 
 
 }
