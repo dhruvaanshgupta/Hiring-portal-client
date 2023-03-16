@@ -1,4 +1,6 @@
-<mat-nav-list>
+<mat-nav-list style="
+background-color: aliceblue;height: 98%;
+">
   <div class="profile-card">
     <div class="header">
       <img
@@ -8,7 +10,7 @@
         alt="userLogo"
       />
       <h2 style="font-weight: 400">{{ this.emailId }}</h2>
-      <h4 style="color: lightgrey">{{ this.role }}</h4>
+      <h4 style="color: rgb(67, 80, 201);">{{ this.role }}</h4>
     </div>
   </div>
 
@@ -96,6 +98,7 @@
     *ngIf="userAuthService.roleMatch('Admin')"
     routerLinkActive="list-item-active"
     routerLink="/home/approval"
+    
   >
     Final Reports
   </a>

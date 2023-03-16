@@ -65,11 +65,15 @@ export class UpdatepopupComponent implements OnInit{
   UpdateUser(){
     console.log(this.registerform.value);
     if(this.registerform.valid){
-      console.log('entering loop');
       console.log(this.registerform.value.roleId);
       this.service.Updateuser(this.registerform.value.id, this.registerform.value).subscribe(res=>{
-        this.toastr.success('Updated Successfully.')
-        this.dialog.close();
+        if(res.code === 200){
+          this.toastr.success('Updated Successfully.')
+          this.dialog.close();
+        }
+        else{
+          this.toastr.warning('something went wrong.')
+        }
       })
 
     }else{

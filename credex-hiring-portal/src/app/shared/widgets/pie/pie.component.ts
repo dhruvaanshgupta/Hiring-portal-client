@@ -24,6 +24,9 @@ export class PieComponent implements OnInit {
         },
         tooltip: {
           trigger: 'item'
+        },legend: {
+          orient: 'vertical',
+          left: 'right'
         },
         series: [
           {

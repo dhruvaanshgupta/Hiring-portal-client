@@ -1,1 +1,100 @@
-<p>exam-panel works!</p>
+<ng-container *ngIf="!isRegistered; else examPortal">
+
+  <mat-stepper #stepper>
+    <mat-step [stepControl]="registerForm" errorMessage="Mandatory Fields.">
+      <form [formGroup]="registerForm" (submit)="submit()">
+        <ng-template matStepLabel>Enter your Skills</ng-template>
+        <div mat-dialog-content class="content">
+          <div class="row">
+            <mat-form-field appearance="outline">
+              <mat-label>Experience</mat-label>
+                        <input matInput type="text" placeholder="Ex. xyz" formControlName="experience">
+                      </mat-form-field>
+                </div>
+        
+                <div class="row">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Preferred Tech Stack</mat-label>
+                    <input matInput type="text" placeholder="Ex. Java" formControlName="language">
+                  </mat-form-field>
+                </div>
+                
+                <div class="row">
+                  <mat-form-field appearance="outline">
+                        <mat-label>Skills</mat-label>
+                        <input matInput type="text" placeholder="Ex. Web Development" formControlName="skills">
+                    </mat-form-field>
+                  </div>
+                  
+                  <div class="row">
+                    <label id="largeFile" for="file">
+                      <input type="file" id="file" formControlName="resumeLink">
+                    </label>
+                  </div>
+                  
+                  
+                  
+                </div>
+                <div mat-dialog-actions class="action">
+                  <button mat-raised-button color="primary" type="submit" matStepperNext>{{'Save'}} & Next</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup" errorMessage="Mandatory Fields.">
+        <div class="wrapper">
+          <section>
+            <h1>Rules and Regulations - </h1>
+            <h2>Read the instructions carefully.</h2>
+            
+            <ul>
+              <li>Arrange for stable Internet connectivity.</li>
+              <li>Giving examination on Laptop or Desktop is highly recommended.</li>
+              <li>Make sure mobile/laptop is fully charged. Power bank for mobile or UPS/Inverter for laptop/desktop should be arranged for uninterrupted power supply.</li>
+              <li>Students should have sufficient data in Fair Usage Policy (FUP) / Internet plan with sufficient data pack of internet service provider.</li>
+              <li>Login to the portal 10 min before the online examination start time.</li>
+              <li>Close all browsers/tabs before starting the online examination.</li>
+              <li>Once the exam starts, do not switch to any other window/tab. On doing so, your attempt may be considered as malpractice and your exam may get terminated.</li>
+              <li>Do Not Pickup/Receive the Call during the exam if you are giving the exam on mobile. This also will be treated as changing the window.</li>
+              <li>To avoid unwanted pop-ups, use of Ad Blocker is recommended.</li>
+              <li>Clear browser cache memory on mobile and laptops. Clear browsing history and also delete temp files.</li>
+              
+              <li>It is recommended to use web browser such as Mozilla and Chrome browsers etc. on a desktop/laptop/tab/smart phone.</li>
+              <li>Do not use the back button of keyboard or close button/icon to go back to previous page or to close the screen.</li>
+              <li>Student will not allow to login after 30 min from the start of examination.</li>
+            </ul>
+          </section>
+        </div>
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Rules and Regulations</ng-template>
+          <section class="example-section">
+            <mat-checkbox class="example-margin" formControlName="agree">Agree to the above terms and conditions.</mat-checkbox>
+          </section>
+          <div>
+            <button mat-raised-button matStepperPrevious class="back">Back</button>
+            <button mat-raised-button color="primary" matStepperNext class="next">Next</button>
+          </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <div class="wrapper">
+        <section>
+        <h1>All the best for the exam. </h1>
+        <h2>You are all done.</h2>
+        </section>
+      </div>
+      <div>
+        <button mat-raised-button matStepperPrevious class="back">Back</button>
+        <button mat-raised-button color="primary" (click)="stateSetter()" type="submit" matStepperNext class="next">Submit</button>
+        
+        <button mat-raised-button color="warn" (click)="stepper.reset()" class="next">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</ng-container>
+  
+<!-- Exam portal displayed if user is registered. -->
+
+<ng-template #examPortal>
+  <app-exam-portal></app-exam-portal>
+</ng-template>

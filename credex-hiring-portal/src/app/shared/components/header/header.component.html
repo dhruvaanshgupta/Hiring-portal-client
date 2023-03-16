@@ -1,4 +1,4 @@
-<ng-container *ngIf="userAuthService.roleMatch('Admin')">
+<ng-container>
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <button mat-icon-button (click)="toggleSideBar()">
@@ -32,39 +32,3 @@
 </mat-toolbar>
 </ng-container>
 
-<!-- 
-for student -->
-
-<ng-container *ngIf="userAuthService.roleMatch('Student')">
-  <mat-toolbar color="warn">
-    <mat-toolbar-row>
-      <button mat-icon-button (click)="toggleSideBar()">
-        <!-- (click)="toggleSideBar()" -->
-        <mat-icon>menu</mat-icon>
-      </button>
-      <a routerLink="/dashboard" style="cursor: pointer;"><span > CREDE<span class="x-style">X</span></span></a>
-  
-      
-  
-      <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
-        <ul fxLayout="row" fxLayoutGap="20px">
-          <li>
-            <button mat-icon-button>
-              <mat-icon>settings</mat-icon>
-            </button>
-          </li>
-          <li>
-            <button mat-icon-button>
-              <mat-icon>help_outline</mat-icon>
-            </button>
-          </li>
-          <li>
-            
-              <a (click)="logout()"><button mat-icon-button><mat-icon>exit_to_app</mat-icon></button></a>
-            
-          </li>
-        </ul>
-      </div>
-    </mat-toolbar-row>
-  </mat-toolbar>
-  </ng-container>

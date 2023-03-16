@@ -13,7 +13,6 @@ export class HeaderComponent {
   constructor(public userAuthService: AuthService,private router: Router){}
   logout(){
     sessionStorage.clear();
-    localStorage.clear();
     this.router.navigate(['auth']);
   }
 

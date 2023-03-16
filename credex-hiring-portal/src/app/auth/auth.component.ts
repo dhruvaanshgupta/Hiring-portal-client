@@ -95,6 +95,7 @@ export class AuthComponent implements OnInit {
           ) {
             sessionStorage.setItem('emailId', user.emailId);
             sessionStorage.setItem('roleId', user.roleId);
+            sessionStorage.setItem('id',user.id);
             this.service.navigate();
             //funtion call karega jo services mein karna
             

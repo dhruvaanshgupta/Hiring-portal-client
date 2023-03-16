@@ -22,22 +22,9 @@ export class UserAddFormComponent implements OnInit {
     this.empForm = this.builder.group({
       firstName: this.builder.control('', Validators.required),
       lastName: this.builder.control('', Validators.required),
-      password: this.builder.control(
-        '',
-        Validators.compose([
-          Validators.required,
-          Validators.pattern(
-            '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-zd$@$!%*?&].{8,}'
-          ),
-        ])
-      ),
+      password: this.builder.control('',Validators.required,),
       contact: this.builder.control(
-        '',
-        Validators.compose([
-          Validators.required,
-          Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$'),
-        ])
-      ),
+'',Validators.required),
       emailId: this.builder.control(
         '',
         Validators.compose([Validators.required, Validators.email])

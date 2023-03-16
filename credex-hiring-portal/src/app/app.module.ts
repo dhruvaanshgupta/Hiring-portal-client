@@ -28,6 +28,7 @@ import { UserRolesComponent } from './modules/user-roles/user-roles.component';
 import { UserAddFormComponent } from './user-add-form/user-add-form.component';
 import { ExamPanelComponent } from './modules/exam-panel/exam-panel.component';
 import { ForbiddenComponent } from './modules/forbidden/forbidden.component';
+import { ExamPortalComponent } from './modules/exam-portal/exam-portal.component';
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import { ForbiddenComponent } from './modules/forbidden/forbidden.component';
     DataAddEditComponent,
     UserRolesComponent,
     UserAddFormComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
   ],
   imports: [
     BrowserModule,
