@@ -32,6 +32,8 @@ import { ExamPanelComponent } from 'src/app/modules/exam-panel/exam-panel.compon
 import {MatStepperModule} from '@angular/material/stepper';
 import { MatCheckbox, MatCheckboxModule } from '@angular/material/checkbox';
 import { ExamPortalComponent } from 'src/app/modules/exam-portal/exam-portal.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatListModule} from '@angular/material/list';
 
 
 @NgModule({
@@ -70,6 +72,8 @@ import { ExamPortalComponent } from 'src/app/modules/exam-portal/exam-portal.com
     ToastrModule.forRoot(),
     MatStepperModule,
     MatCheckboxModule,
+    MatProgressBarModule,
+    MatListModule
 
     
   ],
