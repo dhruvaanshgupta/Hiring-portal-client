@@ -1,0 +1,46 @@
+<div mat-dialog-title class="title">
+  <h1>Student Details</h1>
+</div>
+
+<div class="bootstrap-wrapper">
+  <div class="row">
+    <div class="col">
+      <mat-dialog-content class="typography">
+        <ng-container *ngIf="studentdata">
+          <mat-card *ngIf="studentdata.roleId == 'student'" class="container">
+            <mat-card-content>
+              <h1>First Name</h1>
+              <h2>{{ studentdata.FirstName }}</h2>
+            </mat-card-content>
+            <mat-divider [inset]="true"></mat-divider>
+            <mat-card-content>
+              <h1>Last Name</h1>
+              <h2>{{ studentdata.LastName }}</h2>
+            </mat-card-content>
+            <mat-divider [inset]="true"></mat-divider>
+            <mat-card-content>
+              <h1>Email</h1>
+              <h2>{{ studentdata.email }}</h2>
+            </mat-card-content>
+            <mat-divider [inset]="true"></mat-divider>
+            <mat-card-content>
+              <h1>Language</h1>
+              <h2>{{ studentdata.language }}</h2>
+            </mat-card-content>
+            <mat-divider [inset]="true"></mat-divider>
+            <mat-card-content>
+              <h1>Skills</h1>
+              <h2>{{ studentdata.skills }}</h2>
+            </mat-card-content>
+            <mat-divider [inset]="true"></mat-divider>
+            <div>
+              <mat-dialog-actions align="center">
+                <button mat-raised-button mat-dialog-close>Close</button>
+              </mat-dialog-actions>
+            </div>
+          </mat-card>
+        </ng-container>
+      </mat-dialog-content>
+    </div>
+  </div>
+</div>

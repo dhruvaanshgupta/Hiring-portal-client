@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { ReportService } from '../final-reports.service';
+import { ReportService } from '../../final-reports.service';
 import { StudentDetailsComponent } from '../student-details/student-details.component';
 
 @Component({
@@ -33,8 +33,15 @@ export class FinalReportsComponent {
     this.dataSource = new MatTableDataSource<any>(this.service.getReports());
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.getReportdata();
   }
-
+  userdata: any;
+  getReportdata() {
+    this.service.getReportData().subscribe((response) => {
+      this.userdata = response;
+      console.log(this.userdata);
+    });
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

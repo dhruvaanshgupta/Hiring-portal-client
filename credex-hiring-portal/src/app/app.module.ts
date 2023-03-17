@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,20 +25,18 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { StudentsComponent } from './modules/students/students.component';
 import { DrivesComponent } from './modules/drives/drives.component';
-import { StudentDetailsComponent } from './student-details/student-details.component';
+import { StudentDetailsComponent } from './modules/student-details/student-details.component';
 import { QuestionaireComponent } from './not in use/questionaire.component';
 import { QuestionsComponent } from './modules/questions/questions.component';
-import { AddQuestionsComponent } from './add-questions/add-questions.component';
+import { AddQuestionsComponent } from './modules/add-questions/add-questions.component';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
-import { QuestionPaper1Component } from './question-paper1/question-paper1.component';
-import { QuestionPaper2Component } from './question-paper2/question-paper2.component';
-import { QuestionPaper3Component } from './question-paper3/question-paper3.component';
+import { QuestionPaper1Component } from './modules/question-paper1/question-paper1.component';
+import { QuestionPaper2Component } from './modules/question-paper2/question-paper2.component';
+import { QuestionPaper3Component } from './modules/question-paper3/question-paper3.component';
 import { MatCardActions } from '@angular/material/card';
-import { FinalReportsComponent } from './final-reports/final-reports.component';
-
-
+import { FinalReportsComponent } from './modules/final-reports/final-reports.component';
 
 @NgModule({
   declarations: [
@@ -53,9 +51,7 @@ import { FinalReportsComponent } from './final-reports/final-reports.component';
     QuestionPaper1Component,
     QuestionPaper2Component,
     QuestionPaper3Component,
-    FinalReportsComponent
-
-
+    FinalReportsComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,9 +78,8 @@ import { FinalReportsComponent } from './final-reports/final-reports.component';
     MatCardModule,
     FormsModule,
     MatListModule,
-
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

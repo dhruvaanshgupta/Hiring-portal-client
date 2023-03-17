@@ -1,4 +1,4 @@
-<div class="bootstrap-wrapper">
+<!-- <div class="bootstrap-wrapper">
   <div class="row">
     <div class="col-md-12">
       <mat-toolbar color="primary">
@@ -69,13 +69,16 @@
       </mat-card>
     </div>
   </div>
+</div> -->
+
+<div>
+  <mat-toolbar color="primary">
+    <span><b>Add Questions file</b></span>
+    <span class="example-spacer"></span>
+  </mat-toolbar>
 </div>
-
-<br>
-
-<div class="container">
-  <input (change)="selectFile($event)" type="file" />
-  <button (click)="(uploadFile)" class="btn" mat-raised-button color="primary">
-    Upload
-  </button>
+<div class="row">
+  <label id="largeFile" for="file">
+    <input type="file" id="file" accept=".json " formControlName="resumeLink" />
+  </label>
 </div>

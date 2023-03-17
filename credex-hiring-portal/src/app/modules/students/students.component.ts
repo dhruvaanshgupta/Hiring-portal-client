@@ -2,11 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatIcon } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
-import { StudentDetailsComponent } from 'src/app/student-details/student-details.component';
+import { StudentDetailsComponent } from 'src/app/modules/student-details/student-details.component';
 import { StudentService } from 'src/app/students.service';
 import { CoreService } from '../../core/core.service';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-students',
@@ -14,7 +15,6 @@ import { CoreService } from '../../core/core.service';
   styleUrls: ['./students.component.scss'],
 })
 export class StudentsComponent {
-
   [x: string]: any;
   openEditForm(_t92: any) {
     throw new Error('Method not implemented.');
@@ -26,11 +26,12 @@ export class StudentsComponent {
     'id',
     'status',
     'email',
-    'password',
+    // 'password',
     'FirstName',
     'LastName',
     'roleId',
     'language',
+    //'Experience,
     'details',
   ];
   dataSource!: MatTableDataSource<any>;
@@ -41,7 +42,8 @@ export class StudentsComponent {
   constructor(
     private dialog: MatDialog,
     private studentService: StudentService,
-    private coreService: CoreService
+    private coreService: CoreService,
+    private http: HttpClient
   ) {}
 
   ngOnInit() {
@@ -49,9 +51,15 @@ export class StudentsComponent {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.dataSource.data = this.studentService.students;
+    this.getStudentList();
   }
-
-
+  userdata: any;
+  getStudentList() {
+    this.studentService.getStudentList().subscribe((response) => {
+      this.userdata = response;
+      console.log(response);
+    });
+  }
 
   openDialog() {
     const dialogRef = this.dialog.open(StudentDetailsComponent);

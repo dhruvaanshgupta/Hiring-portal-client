@@ -7,7 +7,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class StudentService {
-
+  getStudentData() {
+    throw new Error('Method not implemented.');
+  }
 
   students = [
     {
@@ -75,12 +77,11 @@ export class StudentService {
       roleId: 2,
       language: 'C#',
       Experience: '4 years',
-    }
+    },
   ];
-  constructor(private _http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getStudentList(): Observable<any> {
-    return this._http.get('');
+    return this.http.get('http://localhost:3000/students');
   }
 }
-

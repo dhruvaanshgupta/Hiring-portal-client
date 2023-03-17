@@ -1,6 +1,3 @@
-
-
-
 <mat-toolbar color="primary">
   <span><b>Final Reports</b></span>
   <span class="example-spacer"></span>
@@ -13,7 +10,7 @@
   </mat-form-field>
 
   <div class="table-container">
-    <table mat-table [dataSource]="dataSource" matSort>
+    <table mat-table [dataSource]="userdata" matSort>
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
         <td mat-cell *matCellDef="let student">{{ student.id }}</td>
@@ -30,21 +27,27 @@
       </ng-container>
 
       <ng-container matColumnDef="technical_score1">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Technical Score-1</th>
-        <td mat-cell *matCellDef="let student">{{ student.technical_score1 }}</td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Technical Score-1
+        </th>
+        <td mat-cell *matCellDef="let student">
+          {{ student.technical_score1 }}
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="technical_score2">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Technical Score-2</th>
-        <td mat-cell *matCellDef="let student">{{ student.technical_score2}}</td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Technical Score-2
+        </th>
+        <td mat-cell *matCellDef="let student">
+          {{ student.technical_score2 }}
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="score_card">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Score Card</th>
         <td mat-cell *matCellDef="let student">{{ student.score_card }}</td>
       </ng-container>
-
-
 
       <ng-container matColumnDef="feedback">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Feedback</th>
@@ -57,7 +60,9 @@
       </ng-container> -->
 
       <ng-container matColumnDef="details">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Studnt Profile Details</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Student Profile Details
+        </th>
         <td mat-cell *matCellDef="let row">
           <button mat-raised-button color="primary"> Open details </button>
         </td>

@@ -7,12 +7,11 @@ import { AuthComponent } from './auth/auth.component';
 import { StudentsComponent } from './modules/students/students.component';
 import { DrivesComponent } from './modules/drives/drives.component';
 import { QuestionsComponent } from './modules/questions/questions.component';
-import { AddQuestionsComponent } from './add-questions/add-questions.component';
-import { FinalReportsComponent } from './final-reports/final-reports.component';
-import { QuestionPaper1Component } from './question-paper1/question-paper1.component';
-import { QuestionPaper2Component } from './question-paper2/question-paper2.component';
-import { QuestionPaper3Component } from './question-paper3/question-paper3.component';
-
+import { AddQuestionsComponent } from './modules/add-questions/add-questions.component';
+import { FinalReportsComponent } from './modules/final-reports/final-reports.component';
+import { QuestionPaper1Component } from './modules/question-paper1/question-paper1.component';
+import { QuestionPaper2Component } from './modules/question-paper2/question-paper2.component';
+import { QuestionPaper3Component } from './modules/question-paper3/question-paper3.component';
 
 const routes: Routes = [
   {
@@ -61,8 +60,8 @@ const routes: Routes = [
       },
       {
         path: 'final-reports',
-        component: FinalReportsComponent
-      }
+        component: FinalReportsComponent,
+      },
     ],
   },
   {
@@ -75,4 +74,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
