@@ -1,6 +1,76 @@
 {
-  "user": [
-    
-    
+  "users": [
+    {
+      "firstName": "Dhruv",
+      "lastName": "Gupta",
+      "password": "Abc@123456",
+      "contact": 8130261903,
+      "emailId": "dhruv5252@gmail.com",
+      "roleId": "Admin",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "firstName": "Gourav",
+      "lastName": "Sir",
+      "password": "Abc@123456",
+      "contact": 8130261903,
+      "emailId": "dhruv123@gmail.com",
+      "roleId": "Student"
+    },
+    {
+      "firstName": "Rudransh",
+      "lastName": "Shukla",
+      "password": "Abc@123456",
+      "contact": 8130261903,
+      "emailId": "abc@gmail.com",
+      "roleId": "Recruiter",
+      "id": 3
+    },
+    {
+      "firstName": "simran",
+      "lastName": "simran",
+      "password": "Abc@123456",
+      "contact": 8130261903,
+      "emailId": "simran123@gmail.com",
+      "roleId": "Student",
+      "experience":"",
+      "language":"",
+      "skills":"",
+      "resumeLink":"",
+      "id": 4
+    },
+    {
+      "firstName": "UserTest",
+      "lastName": "2",
+      "password": "Abc@123456",
+      "contact": 8130261903,
+      "emailId": "dhruv1323@gmail.com",
+      "roleId": "",
+      "id": 5
+    },
+    {
+      "firstName": "User",
+      "lastName": "Test3",
+      "password": "Abc@123456",
+      "contact": 8130261903,
+      "emailId": "dhruvzz@gmail.com",
+      "roleId": "",
+      "id": 6
+    }
+  ],
+  "role": [
+    {
+      "code": "Admin",
+      "name": "Admin"
+    },
+    {
+      "code": "Recruiter",
+      "name": "Recruiter"
+    },
+    {
+      "code": "Student",
+      "name": "Student"
+    }
   ]
 }

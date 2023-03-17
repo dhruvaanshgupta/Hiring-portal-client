@@ -1,108 +1,200 @@
-.announcement-widget {
-    background-color:#3F51B5;
-    border: 3px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    margin-left: 20px;
-    height: 780px;
-  
-    .header{
-        height: 60px;
-        background-color: #303F9F;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        color: whitesmoke;
-        width:100%;
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,900");
 
+$lato: "Lato", sans-serif;
+$fw--1: 300;
+$fw--2: 400;
+$fw--3: 900;
 
-    }
-    h2 {
-      
-      margin-top: 0;
-    }
+$ligther-grey: #f2f2f2;
+$light-grey: #e2e2e2;
+$dark-grey: #2b2b2b;
+$pink: #e8a4a2;
+$peach: #ef5a5c;
+$blue: #72a3d4;
+
+@mixin gradient($deg, $colorStart, $colorMid, $colorEnd) {
+  background: linear-gradient($deg, $colorStart, $colorMid, $colorEnd);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// General
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  background: #f48f8b;
+}
+
+h1,
+h2,
+h3,
+span,
+a,
+p,
+li,
+i {
+  font-size: $lato;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+// Chatroom styling
+.chatroom {
+  width: 500px;
+  margin: 30px auto 0;
+  background: rgb(167, 209, 247);
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 30px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px 2px rgba($dark-grey, .5);
   
-   
-  
-    h3 {
-      
-      margin-bottom: 10px;
-      font-weight: 500;
-    }
+  .chat-top {
+    background-color: rgb(167, 209, 247);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     
-  
-    .announcement-list {
-        border: 1px solid #666;
-        padding: 10px;
-        background-color: white;
-        height: 450px;
-        max-height: 450px;
-      div {
-        
-        margin-bottom: 10px;
-        padding-bottom: 10px;
-  
-        h3 {
-          margin-top: 0;
-        }
-  
-        small {
-          color: #666;
-          display: block;
-          margin-top: 5px;
-        }
+    .name {
+      h3 {
+        font-weight: $fw--2;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: white;
+        padding-top: 10px;
       }
     }
-
-    .footer{
-
-        background-color: #303F9F;
-        padding-top: 30px;
-        width: 100%;
-        position: sticky;
-        padding-bottom: 42px;
-        form {
-            
-      input[type="text"], textarea {
-        background-color: #fff;
-        border: 2px solid #ccc;
-        border-radius: 3px;
-        box-shadow: none;
-        color: #555;
-        margin-bottom: 10px;
-        padding: 10px;
-        width: 100%;
-        padding-right: 0px;
-        padding-left: 0px;
-        border-right-width: 0px;
-        border-left-width: 0px;
-  
-        &:focus {
-           
-          box-shadow: none;
-          outline: none;
-        }
-      }
-    }
-  
     
-  
-      button {
-        background-color: #4150c1;
-        border: none;
-        border-radius: 3px;
-        color: #fff;
+    .control {
+      span { 
+        color: $blue; 
         cursor: pointer;
-        font-size: 14px;
-        padding: 10px;
-        margin-left: 360px;
-        border-radius: 50%;
-        margin-top: 10px;
-  
-        &:hover {
-          background-color: orange;
+      }
+      
+      &:hover {
+        span, span::before {
+          color: #31356c;
+        }
+      }
+      
+      .arrow {
+        &::before {
+          content: "<";
+          font-weight: $fw--3;
+          font-family: $lato;
+          font-size: 1em;
+          color: $blue;
+        }
+      }
+    }
+    
+    .profile {
+      display: flex;
+      img {
+        margin: auto;
+      }
+    }
+    
+  }
+  .chat-mid {
+    padding: 0 20px 50px;
+    background-color: aliceblue;
+
+    .chat {
+      display: grid;
+      grid-template-columns: 50px 360px 50px;
+      .chatbox {
+        display: flex;
+        align-items: center;
+        position: relative;
+        
+        .message {
+          padding: 1px 10px;
+          border-radius: 25px;
+          background: white;
+          position: relative;
+          box-shadow: 1px 2px 3px 1px rgba($dark-grey, .3);
+          
+          &::before {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 2px;
+           // background: white;
+          }
+        }
+      }
+      .left {
+        grid-column: 1/3;
+        .message {
+          margin-left: 10px;
+          border-left-color: transparent;
+          
+          &::before {
+            top: 50%;
+            left: -12px;
+            transform: translatey(-50%);
+            border: 7px solid transparent;
+            border-right-color: white;
+          }
+        }
+      }
+      .right {
+        grid-column: 5/-1;
+        justify-self: end;
+        .message {
+          margin-right: 10px;
+          border-right-color: transparent;
+          &::before {
+            top: 50%;
+            right: -12px;
+            transform: translatey(-50%);
+            border: 7px solid transparent;
+            border-left-color: white;
+          }
+        }
+        .profile {
+          order: 2;
         }
       }
     }
   }
   
+  .chat-bottom {
+    padding: 30px 20px 0;
+    background-color: rgb(167, 209, 247);
+    
+    form {
+      display: flex;
+      input {
+        flex: 2 1 auto;
+        outline: none;
+        border: 1px solid transparent;
+        border-bottom-color:  rgb(167, 209, 247);
+        padding: 0 15px;
+      }
+      
+      span {
+        margin: 0 20px;
+        padding: 5px 10px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    }
+  }
+}

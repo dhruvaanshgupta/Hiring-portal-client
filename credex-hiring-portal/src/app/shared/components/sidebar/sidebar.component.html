@@ -1,32 +1,105 @@
-<mat-nav-list>
-    <div class="profile-card">
-        <div class="header">
-            <h2 class="welcome">WELCOME!</h2>
-            <h4>Admin</h4>
-        </div>
-
+<mat-nav-list style="
+background-color: aliceblue;height: 98%;
+">
+  <div class="profile-card">
+    <div class="header">
+      <img
+        mat-card-image
+        style="width: 30%; height: auto; object-fit: cover"
+        src="../../../../assets/img/userLogo.png"
+        alt="userLogo"
+      />
+      <h2 style="font-weight: 400">{{ this.emailId }}</h2>
+      <h4 style="color: rgb(67, 80, 201);">{{ this.role }}</h4>
     </div>
+  </div>
 
-    <mat-divider></mat-divider>
-    <h2 matSubheader>Management</h2>
+  <mat-divider></mat-divider>
+  <h2
+    matSubheader
+    *ngIf="userAuthService.roleMatch('Admin')"
+    style="padding-left: 12px"
+  >
+    Management
+  </h2>
+  <h2
+    matSubheader
+    *ngIf="userAuthService.roleMatch('Student')"
+    style="padding-left: 12px"
+  >
+    Panel
+  </h2>
 
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/">Dashboard</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/colleges">Colleges</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/candidates">Candidates</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/drives">Drives</a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/questions">Questionnaire</a>
+  <a
+    mat-list-item
+    *ngIf="userAuthService.roleMatch('Admin')"
+    routerLinkActive="list-item-active"
+    routerLink="/home/dashboard"
+    >Dashboard</a
+  >
 
-<mat-divider></mat-divider>
+  <a
+  mat-list-item
+  *ngIf="userAuthService.roleMatch('Student')"
+  routerLinkActive="list-item-active"
+  routerLink="/home/exam"
+  >Examination</a
+>
 
-<h2 matSubheader>HR Approval</h2>
+  <a
+    mat-list-item
+    *ngIf="userAuthService.roleMatch('Admin')"
+    routerLinkActive="list-item-active"
+    routerLink="/home/colleges"
+    >Colleges</a
+  >
+  <a
+    mat-list-item
+    *ngIf="userAuthService.roleMatch('Admin')"
+    routerLinkActive="list-item-active"
+    routerLink="/home/candidates"
+    >Candidates</a
+  >
+  <a
+    mat-list-item
+    *ngIf="userAuthService.roleMatch('Admin')"
+    routerLinkActive="list-item-active"
+    routerLink="/home/drives"
+    >Drives</a
+  >
+  <a
+    mat-list-item
+    *ngIf="userAuthService.roleMatch('Admin')"
+    routerLinkActive="list-item-active"
+    routerLink="/home/questions"
+    >Questionnaire</a
+  >
 
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/user-roles">
+  <mat-divider *ngIf="userAuthService.roleMatch('Admin')"></mat-divider>
 
-        User Roles
-    </a>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/approval">
+  <h2
+    matSubheader
+    *ngIf="userAuthService.roleMatch('Admin')"
+    style="padding-left: 12px"
+  >
+    HR Approval
+  </h2>
 
-        Final Reports
-    </a>
-
+  <a
+    mat-list-item
+    *ngIf="userAuthService.roleMatch('Admin')"
+    routerLinkActive="list-item-active"
+    routerLink="/home/user-roles"
+  >
+    User Roles
+  </a>
+  <a
+    mat-list-item
+    *ngIf="userAuthService.roleMatch('Admin')"
+    routerLinkActive="list-item-active"
+    routerLink="/home/approval"
+    
+  >
+    Final Reports
+  </a>
 </mat-nav-list>
