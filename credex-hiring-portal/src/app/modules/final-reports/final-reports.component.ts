@@ -1,8 +1,9 @@
+
 import { Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ReportService } from '../../final-reports.service';
 import { StudentDetailsComponent } from '../student-details/student-details.component';
 
@@ -12,7 +13,7 @@ import { StudentDetailsComponent } from '../student-details/student-details.comp
   styleUrls: ['./final-reports.component.scss'],
 })
 export class FinalReportsComponent {
-  displayedColumns: string[] = [
+  displayedColumns = [
     'id',
     'name',
     'college_name',
@@ -22,21 +23,21 @@ export class FinalReportsComponent {
     'feedback',
     'details',
   ];
-  dataSource!: MatTableDataSource<any>;
+  dataSource = new MatTableDataSource<any>();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  input: any;
 
   constructor(private dialog: MatDialog, private service: ReportService) {}
 
   ngOnInit() {
-    this.dataSource = new MatTableDataSource<any>(this.service.getReports());
+    this.dataSource.data = this.service.getReports();
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    this.getReportdata();
+    this.getReportData();
   }
+
   userdata: any;
-  getReportdata() {
+  getReportData() {
     this.service.getReportData().subscribe((response) => {
       this.userdata = response;
       console.log(this.userdata);
@@ -50,4 +51,16 @@ export class FinalReportsComponent {
       this.dataSource.paginator.firstPage();
     }
   }
+
+  showStudentDetails(row: any) {
+    const dialogRef = this.dialog.open(StudentDetailsComponent, {
+      width: '800px',
+      data: row,
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+    });
+  }
 }
+

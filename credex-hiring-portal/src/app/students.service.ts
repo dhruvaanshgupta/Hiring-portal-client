@@ -7,6 +7,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class StudentService {
+  deleteStudent(id: number) {
+    throw new Error('Method not implemented.');
+  }
   getStudentData() {
     throw new Error('Method not implemented.');
   }
