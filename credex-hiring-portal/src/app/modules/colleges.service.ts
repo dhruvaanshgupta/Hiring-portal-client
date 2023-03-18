@@ -57,15 +57,6 @@ private COLLEGES_DATA = [
     Contact: 'pqr@example.com',
     CurrentAccrediation: 'Accredited',
   },
-  {
-    id: 5,
-    Name: 'LMN University',
-    Location: 'Seattle',
-    CourseOffered: 'Environmental Science',
-    Contact: 'lmn@example.com',
-    CurrentAccrediation: 'Accredited',
-  }
-  
   // add more objects as needed
 ];
 

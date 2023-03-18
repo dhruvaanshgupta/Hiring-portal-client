@@ -1,0 +1,25 @@
+<div>
+  <mat-toolbar color="primary">
+    <span><b>Question Paper</b></span>
+    <span class="example-spacer"></span>
+  </mat-toolbar>
+</div>
+<mat-divider></mat-divider>
+<div class="content">
+  <mat-card
+    *ngFor="let question of questions; let i = index"
+    class="content-card"
+  >
+    <mat-card-header>
+      <h1>Q{{ i + 1 }}. {{ question.content }}</h1>
+    </mat-card-header>
+    <mat-card-content>
+      <p>1. {{ question.option1 }}</p>
+      <p>2. {{ question.option2 }}</p>
+      <p>3. {{ question.option3 }}</p>
+      <p>4. {{ question.option4 }}</p>
+
+      <mat-divider></mat-divider>
+    </mat-card-content>
+  </mat-card>
+</div>

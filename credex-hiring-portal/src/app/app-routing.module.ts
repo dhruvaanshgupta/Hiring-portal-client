@@ -1,13 +1,22 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DefaultComponent } from './layouts/default/default.component';
 import { CollegesComponent } from './modules/colleges/colleges.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { AuthComponent } from './auth/auth.component';
+import { StudentsComponent } from './modules/students/students.component';
+import { DrivesComponent } from './modules/drives/drives.component';
+import { QuestionsComponent } from './modules/questions/questions.component';
+import { AddQuestionsComponent } from './modules/add-questions/add-questions.component';
+import { FinalReportsComponent } from './modules/final-reports/final-reports.component';
+import { QuestionPaper1Component } from './modules/question-paper1/question-paper1.component';
+import { QuestionPaper2Component } from './modules/question-paper2/question-paper2.component';
+import { QuestionPaper3Component } from './modules/question-paper3/question-paper3.component';
 import { UserRolesComponent } from './modules/user-roles/user-roles.component';
 import { AuthGuard } from './auth/auth.guard';
 import { ExamPanelComponent } from './modules/exam-panel/exam-panel.component';
 import { ForbiddenComponent } from './modules/forbidden/forbidden.component';
+
 
 
 const routes: Routes = [{
@@ -25,7 +34,31 @@ const routes: Routes = [{
   },{
     path: 'exam',
     component: ExamPanelComponent,canActivate:[AuthGuard],data:{roleId:'Student'}
-  }]
+  },
+      {
+        path: 'students',
+        component: StudentsComponent,canActivate:[AuthGuard], data:{roleId:'Admin'}
+      },
+      {
+        path: 'drives',
+        component: DrivesComponent,canActivate:[AuthGuard], data:{roleId:'Admin'}
+      },
+      {
+        path: 'questions',
+        component: QuestionsComponent,canActivate:[AuthGuard], data:{roleId:'Admin'}
+      },
+      {
+        path: 'add-questions',
+        component: AddQuestionsComponent,canActivate:[AuthGuard], data:{roleId:'Admin'}
+      },
+      {
+        path: 'question-paper1',
+        component: QuestionPaper1Component,canActivate:[AuthGuard], data:{roleId:'Admin'}
+      },
+      {
+        path: 'final-reports',
+        component: FinalReportsComponent,canActivate:[AuthGuard], data:{roleId:'Admin'}
+      },]
 },{
   path: 'auth',
   component: AuthComponent
@@ -36,6 +69,6 @@ const routes: Routes = [{
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

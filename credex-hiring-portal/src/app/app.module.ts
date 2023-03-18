@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,6 +23,17 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { StudentsComponent } from './modules/students/students.component';
+import { DrivesComponent } from './modules/drives/drives.component';
+import { StudentDetailsComponent } from './modules/student-details/student-details.component';
+import { QuestionsComponent } from './modules/questions/questions.component';
+import { AddQuestionsComponent } from './modules/add-questions/add-questions.component';
+import { MatCardModule } from '@angular/material/card';
+import { FormsModule } from '@angular/forms';
+import { MatListModule } from '@angular/material/list';
+import { QuestionPaper1Component } from './modules/question-paper1/question-paper1.component';
+import { MatCardActions } from '@angular/material/card';
+import { FinalReportsComponent } from './modules/final-reports/final-reports.component';
 import { UserRolesComponent } from './modules/user-roles/user-roles.component';
 import { UserAddFormComponent } from './user-add-form/user-add-form.component';
 import { ExamPanelComponent } from './modules/exam-panel/exam-panel.component';
@@ -31,13 +41,22 @@ import { ForbiddenComponent } from './modules/forbidden/forbidden.component';
 import { ExamPortalComponent } from './modules/exam-portal/exam-portal.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     DataAddEditComponent,
+    StudentsComponent,
+    DrivesComponent,
+    StudentDetailsComponent,
+    QuestionsComponent,
+    AddQuestionsComponent,
+    QuestionPaper1Component,
+    FinalReportsComponent,
     UserRolesComponent,
     UserAddFormComponent,
     ForbiddenComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -61,8 +80,11 @@ import { ExamPortalComponent } from './modules/exam-portal/exam-portal.component
     MatPaginatorModule,
     MatSortModule,
     MatSnackBarModule,
+    MatCardModule,
+    FormsModule,
+    MatListModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

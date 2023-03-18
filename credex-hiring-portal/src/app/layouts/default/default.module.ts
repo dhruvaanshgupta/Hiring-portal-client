@@ -36,6 +36,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatListModule} from '@angular/material/list';
 
 
+
 @NgModule({
   declarations: [
     DefaultComponent,
@@ -44,6 +45,7 @@ import {MatListModule} from '@angular/material/list';
     ExamPanelComponent,
     ExamPortalComponent
     
+
   ],
   imports: [
     CommonModule,
@@ -75,7 +77,8 @@ import {MatListModule} from '@angular/material/list';
     MatProgressBarModule,
     MatListModule
 
-    
+
+
   ],
   providers: [
     DashboardService

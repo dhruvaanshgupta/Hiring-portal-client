@@ -1,4 +1,174 @@
 {
+
+  "reports": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "college_name": "ABC College",
+      "technical_score1": 80,
+      "technical_score2": 75,
+      "feedback": "Excellent performance",
+      "score_card": 100
+    },
+    {
+      "id": 2,
+      "name": "John Doe",
+      "college_name": "ABC College",
+      "technical_score1": 80,
+      "technical_score2": 75,
+      "feedback": "Excellent performance",
+      "score_card": 100
+    },
+    {
+      "id": 3,
+      "name": "John Doe",
+      "college_name": "ABC College",
+      "technical_score1": 80,
+      "technical_score2": 75,
+      "feedback": "Excellent performance",
+      "score_card": 100
+    },
+    {
+      "id": 4,
+      "name": "John Doe",
+      "college_name": "ABC College",
+      "technical_score1": 80,
+      "technical_score2": 75,
+      "feedback": "Excellent performance",
+      "score_card": 100
+    },
+    {
+      "id": 5,
+      "name": "John Doe",
+      "college_name": "ABC College",
+      "technical_score1": 80,
+      "technical_score2": 75,
+      "feedback": "Excellent performance",
+      "score_card": 100
+    },
+    {
+      "id": 6,
+      "name": "John Doe",
+      "college_name": "ABC College",
+      "technical_score1": 80,
+      "technical_score2": 75,
+      "feedback": "Excellent performance",
+      "score_card": 100
+    }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "status": "ok",
+      "email": "abc@gmail.com",
+      "password": "!@#@%%GFDFDgg2222",
+      "FirstName": "John",
+      "LastName": "Peterson",
+      "roleId": "admin",
+      "language": "Java"
+    },
+    {
+      "id": 2,
+      "status": "ok",
+      "email": "abc@gmail.com",
+      "password": "!@#@%%GFDFDgg2222",
+      "FirstName": "John",
+      "LastName": "Peterson",
+      "roleId": "recruiter",
+      "language": "Java"
+    },
+    {
+      "id": 3,
+      "status": "ok",
+      "email": "abc@gmail.com",
+      "password": "!@#@%%GFDFDgg2222",
+      "FirstName": "John",
+      "LastName": "Peterson",
+      "roleId": "recruiter",
+      "language": "Java"
+    },
+    {
+      "id": 4,
+      "status": "ok",
+      "email": "abc@gmail.com",
+      "password": "!@#@%%GFDFDgg2222",
+      "FirstName": "John",
+      "LastName": "Peterson",
+      "roleId": "admin",
+      "language": "Java"
+    },
+    {
+      "id": 5,
+      "status": "ok",
+      "email": "abc@gmail.com",
+      "password": "!@#@%%GFDFDgg2222",
+      "FirstName": "John",
+      "LastName": "Peterson",
+      "roleId": "admin",
+      "language": "Java"
+    },
+    {
+      "id": 6,
+      "status": "ok",
+      "email": "abc@gmail.com",
+      "password": "!@#@%%GFDFDgg2222",
+      "FirstName": "John",
+      "LastName": "Peterson",
+      "roleId": "student",
+      "language": "Java"
+    },
+    {
+      "id": 7,
+      "status": "ok",
+      "email": "abc@gmail.com",
+      "password": "!@#@%%GFDFDgg2222",
+      "FirstName": "John",
+      "LastName": "Peterson",
+      "roleId": "student",
+      "language": "Java"
+    },
+    {
+      "id": 8,
+      "status": "ok",
+      "email": "abc@gmail.com",
+      "password": "!@#@%%GFDFDgg2222",
+      "FirstName": "John",
+      "LastName": "Peterson",
+      "roleId": "student",
+      "language": "Java"
+    }
+
+  ],
+  "questions": [
+    {
+      "content": "Which is not a programming language?",
+      "option1": "HTML",
+      "option2": "Java",
+      "option3": "C#",
+      "option4": "Javascript"
+    },
+    {
+      "content": "Which is not a programming language?",
+      "option1": "HTML",
+      "option2": "Java",
+      "option3": "C#",
+      "option4": "Javascript"
+    },
+    {
+      "content": "Which is not a programming language?",
+      "option1": "HTML",
+      "option2": "Java",
+      "option3": "C#",
+      "option4": "Javascript"
+    },
+    {
+      "content": "Which is not a programming language?",
+      "option1": "HTML",
+      "option2": "Java",
+      "option3": "C#",
+      "option4": "Javascript"
+    }
+  ],
   "users": [
     {
       "firstName": "Dhruv",
@@ -74,3 +244,4 @@
     }
   ]
 }
+
