@@ -16,7 +16,7 @@ export class AuthService {
   apiurl='http://localhost:3000/users/'
 
   GetAll(){
-    return this.http.get<Recieve>(this.apiurl);
+    return this.http.get<any>(this.apiurl);
   }
   Getbycode(code:any){
     return this.http.get(`${this.apiurl}?emailId=${code}`);
@@ -27,7 +27,7 @@ export class AuthService {
   }
 
   GetUser(id:any){
-    return this.http.get<Recieve>(this.apiurl+'/'+id);
+    return this.http.get<Recieve>(this.apiurl+id);
   }
 
   GetAllRole(){
@@ -35,10 +35,10 @@ export class AuthService {
   }
 
   Proceedregister(inputdata?:any){
-    return this.http.post<Recieve>(this.apiurl,inputdata);
+    return this.http.post<any>(this.apiurl,inputdata);
   }
   Updateuser(id:any,inputdata:any){
-    return this.http.put<Recieve>(this.apiurl+'/'+id,inputdata)
+    return this.http.put<Recieve>(this.apiurl+id,inputdata)
   }
   UpdateUserByEmail(code:string, inputdata: any) {
     return this.http.put<Recieve>(`${this.apiurl}?emailId=${code}`, inputdata);

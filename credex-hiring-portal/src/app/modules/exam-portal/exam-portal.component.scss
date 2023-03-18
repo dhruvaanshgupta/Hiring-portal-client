@@ -97,8 +97,12 @@ p {
 
 .d-flex {
   display: flex;
-  justify-content:space-between;
   padding-top: 60px;
+  align-items: center;
+
+    button{
+      margin-left: 430px;
+    }
 }
 
 .justify-content-between {
