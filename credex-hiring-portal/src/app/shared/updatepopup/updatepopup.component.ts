@@ -12,6 +12,10 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 import { MAT_DIALOG_DATA, MatDialogRef
  } from '@angular/material/dialog';
+import { catchError } from 'rxjs/internal/operators/catchError';
+import { tap } from 'rxjs/internal/operators/tap';
+import { throwError } from 'rxjs/internal/observable/throwError';
+import { finalize } from 'rxjs/internal/operators/finalize';
 
 @Component({
   selector: 'app-updatepopup',
@@ -66,18 +70,29 @@ export class UpdatepopupComponent implements OnInit{
     console.log(this.registerform.value);
     if(this.registerform.valid){
       console.log(this.registerform.value.roleId);
-      this.service.Updateuser(this.registerform.value.id, this.registerform.value).subscribe(res=>{
-        if(res.code === 200){
-          this.toastr.success('Updated Successfully.')
-          this.dialog.close();
-        }
-        else{
-          this.toastr.warning('something went wrong.')
-        }
-      })
-
-    }else{
+      this.service.Updateuser(this.registerform.value.id, this.registerform.value)
+        .pipe(
+          tap(res => {
+            console.log(res.code);
+            console.log(res);
+            if (res || res.code || res.code === 200) {
+              this.toastr.success('Updated Successfully.')
+            } else {
+              this.toastr.warning('Something went wrong.')
+            }
+          }),
+          catchError(error => {
+            this.toastr.warning('Something went wrong.')
+            return throwError(error);
+          }),
+          finalize(() => {
+            this.dialog.close();
+          })
+        )
+        .subscribe();
+    } else {
       this.toastr.warning('Please Select Role.')
     }
   }
+  
 }

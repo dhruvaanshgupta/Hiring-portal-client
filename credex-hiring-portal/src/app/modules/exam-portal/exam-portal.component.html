@@ -1,5 +1,5 @@
 
-  <div class="container mt-5">
+  <div class="container mt-5" oncopy="return false;" (blur)="handleBlur()" (focus)="handleFocus()">
     <mat-card>
       <div class="logo justify-content-between p-3">
         <div class="image">
@@ -29,9 +29,9 @@
           </mat-list>
         </div>
         <div class="d-flex">
-          <button mat-raised-button [disabled]="currentQuestion===0" (click)="previousQuestion()">
+          <!-- <button mat-raised-button [disabled]="currentQuestion===0" (click)="previousQuestion()">
             Previous
-          </button>
+          </button> -->
           <button mat-raised-button color="primary" (click)="nextQuestion(currentQuestion+1)">
             Next
           </button>

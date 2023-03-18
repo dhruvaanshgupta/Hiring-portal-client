@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { QuestionService } from './question.service';
 import { interval } from 'rxjs';
 
@@ -17,6 +17,9 @@ export class ExamPortalComponent implements OnInit {
   inCorrectAnswer: number = 0;
   progress: string = '0';
   isQuizCompleted: boolean = false;
+  isWarningShown: boolean = false;
+  private timeoutId: ReturnType<typeof setTimeout> | undefined;
+  private switchTabCount: number = 0;
 
   constructor(private questionService: QuestionService) {}
 
@@ -27,12 +30,40 @@ export class ExamPortalComponent implements OnInit {
     if (isQuizCompleted) {
       this.isQuizCompleted = JSON.parse(isQuizCompleted);
     }
+    window.addEventListener('blur', this.handleBlur.bind(this));
+    window.addEventListener('focus', this.handleFocus.bind(this));
+    document.addEventListener('contextmenu', this.handleRightClick);
+  }
+
+  ngOnDestroy(): void {
+    // remove event listeners from window object
+    window.removeEventListener('blur', this.handleBlur.bind(this));
+    window.removeEventListener('focus', this.handleFocus.bind(this));
+    document.removeEventListener('contextmenu', this.handleRightClick);
   }
 
   getAllQuestion() {
     this.questionService.getQuestionJson().subscribe((res) => {
       this.questionList = res.questions;
     });
+  }
+
+  handleRightClick(event: MouseEvent) {
+    event.preventDefault();
+  }
+
+  @HostListener('document:visibilitychange', ['$event'])
+  onVisibilityChange(event: Event) {
+    if (document.hidden) {
+      if (!this.isQuizCompleted) { // added if condition to check if quiz is not completed
+        this.handleBlur();
+      }
+    } else {
+      if (!this.isQuizCompleted) { // added if condition to check if quiz is not completed
+        // restart the counter if the user returns to the test tab
+        this.handleFocus();
+      }
+    }
   }
 
   nextQuestion(currentQno: number) {
@@ -49,9 +80,9 @@ export class ExamPortalComponent implements OnInit {
     this.resetCounter();
   }
 
-  previousQuestion() {
-    this.currentQuestion--;
-  }
+  // previousQuestion() {
+  //   this.currentQuestion--;
+  // }
 
   answer(currentQno: number, option: any) {
     if (currentQno === this.questionList.length) {
@@ -118,5 +149,50 @@ export class ExamPortalComponent implements OnInit {
   getProgressPercent() {
     this.progress = ((this.currentQuestion / this.questionList.length) * 100).toString();
     return this.progress;
+
+
+    
   }
+
+  handleBlur() {
+    if (this.isQuizCompleted) {
+      return;
+    }
+    
+    this.timeoutId = setTimeout(() => {
+      if (!document.hasFocus() && !this.isWarningShown) {
+        alert("Warning: You have left the test tab. Please return to the test and do not leave the tab again, or your test will be auto-submitted.");
+        this.switchTabCount++;
+        this.isWarningShown = true;
+      }
+    }, 10);
+  }
+  
+  handleFocus() {
+    if (this.isQuizCompleted) {
+      return;
+    }
+    
+    clearTimeout(this.timeoutId);
+    if (this.isWarningShown && this.switchTabCount===2) {
+      alert("Warning: Your test has been auto-submitted due to leaving the test tab multiple times.");
+      this.submitTest();
+    }
+    this.isWarningShown = false;
+  }
+
+  submitTest() {
+    this.isQuizCompleted = true;
+    localStorage.setItem('isQuizCompleted', JSON.stringify(true));
+    this.stopCounter();
+    const id = +sessionStorage.getItem('id');
+    this.questionService.updateUserPoints(this.points, id).subscribe(() => {
+      console.log('User points updated.');
+    });
+    
+    // remove event listeners from window object
+    window.removeEventListener('blur', this.handleBlur.bind(this));
+    window.removeEventListener('focus', this.handleFocus.bind(this));
+  }
+  
 }

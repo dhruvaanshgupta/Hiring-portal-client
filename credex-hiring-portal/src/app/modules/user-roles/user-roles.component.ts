@@ -5,7 +5,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdatepopupComponent } from 'src/app/shared/updatepopup/updatepopup.component';
-import { data } from 'jquery';
 import { UserAddFormComponent } from 'src/app/user-add-form/user-add-form.component';
 
 @Component({
@@ -14,22 +13,26 @@ import { UserAddFormComponent } from 'src/app/user-add-form/user-add-form.compon
   styleUrls: ['./user-roles.component.scss'],
 })
 export class UserRolesComponent {
-  constructor(private service: AuthService, private dialog:MatDialog) {
-    this.Loaduser();
+  constructor(private service: AuthService, private dialog: MatDialog) {
+    this.loadUser();
   }
+
   userlist: any;
   dataSource: any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatPaginator) sort!: MatSort;
+  @ViewChild(MatSort) sort!: MatSort;
 
-  Loaduser() {
+  loadUser() {
     this.service.GetAll().subscribe((res) => {
+      console.log('entering loop');
       this.userlist = res;
       this.dataSource = new MatTableDataSource(this.userlist);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      this.dataSource.data = this.userlist;
     });
   }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -39,37 +42,28 @@ export class UserRolesComponent {
     }
   }
 
-  displayedColumns: string[] = [
-    'id',
-    'firstName',
-    'emailId',
-    'roleId',
-    'action',
-  ];
+  displayedColumns: string[] = ['id', 'firstName', 'emailId', 'roleId', 'action'];
+
   UpdateUser(code: any) {
-    const popup = this.dialog.open(UpdatepopupComponent,{
-      enterAnimationDuration:'1000ms',
-      exitAnimationDuration:'500ms',
-      width:'50%',
-      data:{
-        usercode: code
-      }
-    })
-    popup.afterClosed().subscribe(res=>{
-      this.Loaduser();
+    const popup = this.dialog.open(UpdatepopupComponent, {
+      enterAnimationDuration: '1000ms',
+      exitAnimationDuration: '500ms',
+      width: '50%',
+      data: {
+        usercode: code,
+      },
+    });
+    popup.afterClosed().subscribe((res) => {
+      this.loadUser();
     });
   }
 
-  opendialog() {
-    
-  }
-  
-  openAddEntryForm(){
+  openAddEntryForm() {
     const dialogRef = this.dialog.open(UserAddFormComponent);
     dialogRef.afterClosed().subscribe({
       next: (val) => {
         if (val) {
-          this.Loaduser();
+          this.loadUser();
         }
       },
     });
