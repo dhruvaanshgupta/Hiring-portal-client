@@ -12,6 +12,7 @@ input {
 }
 
 .container {
+  height: 100%;
   position: relative;
   width: 100%;
   background-color: #fff;
@@ -238,6 +239,7 @@ form.sign-in-form {
 .right-panel .content {
   transform: translateX(800px);
 }
+
 
 /* ANIMATION */
 

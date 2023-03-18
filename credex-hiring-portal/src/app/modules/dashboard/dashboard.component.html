@@ -1,12 +1,14 @@
-<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
-    <mat-card fxFlex="25">
-        <app-widget-card label="Total Colleges" total="200" percentage="50" [data]="cards"></app-widget-card>
+<ng-container *ngIf="userRole === 'Admin'">
+
+    <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+        <mat-card fxFlex="25">
+            <app-widget-card label="Total Colleges" total="200" percentage="50" [data]="cards"></app-widget-card>
     </mat-card>
     <mat-card fxFlex="25">
         <app-widget-card label="Total Student Enrolled" total="15k" percentage="40" [data]="cards"></app-widget-card>
     </mat-card>
     <mat-card fxFlex="25">
-        <app-widget-card label="Available Vacancies" total="300" percentage="30" [data]="cards"></app-widget-card>
+        <app-widget-card label="Teams Available" total="20" percentage="30" [data]="cards"></app-widget-card>
     </mat-card>
     <mat-card fxFlex="25">
         <app-widget-card label="Selected Students" total="200" percentage="20" [data]="cards"></app-widget-card>
@@ -16,20 +18,23 @@
 <mat-divider></mat-divider>
 <br>
 
-<div>
-    
+<div className= "dashboard-widget" style="height: 75%;">
     <div fxFlex="50">
-        <app-widget-pie title="Campus Types" [data]="pieChart"></app-widget-pie>
-        <br>
-        <app-widget-pie title="Offers Made"  [data]="pieChart"></app-widget-pie>
+        <app-widget-pie></app-widget-pie>
     </div>
     <br>
     <mat-divider></mat-divider>
     <br>
     <div fxFlex="50">
-        <app-widget-announcement></app-widget-announcement>
+      <app-widget-announcement></app-widget-announcement>
     </div>
-    
-</div>
+  </div>
+</ng-container>
+<ng-container *ngIf="userRole === 'Student'">
+    <h1>hi for testing</h1>
 
-
+</ng-container>
+  
+  
+  
+  

@@ -1,8 +1,15 @@
+.mat-drawer-inner-container {
+  background-color: aliceblue;
+}
+
 :host {
-    color: lightgray;
 
     .welcome{
         font-size: 24px;
+    }
+
+    .matSubheader {
+      margin-left: 20px;
     }
 
     // h4{

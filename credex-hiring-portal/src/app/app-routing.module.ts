@@ -12,63 +12,60 @@ import { FinalReportsComponent } from './modules/final-reports/final-reports.com
 import { QuestionPaper1Component } from './modules/question-paper1/question-paper1.component';
 import { QuestionPaper2Component } from './modules/question-paper2/question-paper2.component';
 import { QuestionPaper3Component } from './modules/question-paper3/question-paper3.component';
+import { UserRolesComponent } from './modules/user-roles/user-roles.component';
+import { AuthGuard } from './auth/auth.guard';
+import { ExamPanelComponent } from './modules/exam-panel/exam-panel.component';
+import { ForbiddenComponent } from './modules/forbidden/forbidden.component';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: DefaultComponent,
-    children: [
-      {
-        path: '',
-        component: DashboardComponent,
-      },
-      {
-        path: 'colleges',
-        component: CollegesComponent,
-      },
+
+
+const routes: Routes = [{
+  path: 'home',
+  component: DefaultComponent,canActivate:[AuthGuard],
+  children: [{
+    path: 'dashboard',
+    component: DashboardComponent,canActivate:[AuthGuard], data:{roleId:'Admin'}
+  },{
+    path: 'colleges',
+    component: CollegesComponent,canActivate:[AuthGuard],data:{roleId:'Admin'}
+  },{
+    path: 'user-roles',
+    component: UserRolesComponent,canActivate:[AuthGuard],data:{roleId:'Admin'}
+  },{
+    path: 'exam',
+    component: ExamPanelComponent,canActivate:[AuthGuard],data:{roleId:'Student'}
+  },
       {
         path: 'students',
-        component: StudentsComponent,
+        component: StudentsComponent,canActivate:[AuthGuard], data:{roleId:'Admin'}
       },
       {
         path: 'drives',
-        component: DrivesComponent,
+        component: DrivesComponent,canActivate:[AuthGuard], data:{roleId:'Admin'}
       },
       {
         path: 'questions',
-        component: QuestionsComponent,
+        component: QuestionsComponent,canActivate:[AuthGuard], data:{roleId:'Admin'}
       },
       {
         path: 'add-questions',
-        component: AddQuestionsComponent,
-      },
-      {
-        path: 'approval',
-        component: FinalReportsComponent,
+        component: AddQuestionsComponent,canActivate:[AuthGuard], data:{roleId:'Admin'}
       },
       {
         path: 'question-paper1',
-        component: QuestionPaper1Component,
-      },
-      {
-        path: 'question-paper2',
-        component: QuestionPaper2Component,
-      },
-      {
-        path: 'question-paper3',
-        component: QuestionPaper3Component,
+        component: QuestionPaper1Component,canActivate:[AuthGuard], data:{roleId:'Admin'}
       },
       {
         path: 'final-reports',
-        component: FinalReportsComponent,
-      },
-    ],
-  },
-  {
-    path: 'auth',
-    component: AuthComponent,
-  },
-];
+        component: FinalReportsComponent,canActivate:[AuthGuard], data:{roleId:'Admin'}
+      },]
+},{
+  path: 'auth',
+  component: AuthComponent
+},{
+  path: 'forbidden',
+  component: ForbiddenComponent
+}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

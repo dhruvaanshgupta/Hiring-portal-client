@@ -27,6 +27,13 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ToastrModule } from 'ngx-toastr';  
+import { ExamPanelComponent } from 'src/app/modules/exam-panel/exam-panel.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import { MatCheckbox, MatCheckboxModule } from '@angular/material/checkbox';
+import { ExamPortalComponent } from 'src/app/modules/exam-portal/exam-portal.component';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatListModule} from '@angular/material/list';
 
 
 
@@ -34,7 +41,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
   declarations: [
     DefaultComponent,
     DashboardComponent,
-    CollegesComponent
+    CollegesComponent,
+    ExamPanelComponent,
+    ExamPortalComponent
+    
 
   ],
   imports: [
@@ -61,6 +71,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatPaginatorModule,
     MatSortModule,
     MatSnackBarModule,
+    ToastrModule.forRoot(),
+    MatStepperModule,
+    MatCheckboxModule,
+    MatProgressBarModule,
+    MatListModule
 
 
 
