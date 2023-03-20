@@ -10,8 +10,6 @@ import { QuestionsComponent } from './modules/questions/questions.component';
 import { AddQuestionsComponent } from './modules/add-questions/add-questions.component';
 import { FinalReportsComponent } from './modules/final-reports/final-reports.component';
 import { QuestionPaper1Component } from './modules/question-paper1/question-paper1.component';
-import { QuestionPaper2Component } from './modules/question-paper2/question-paper2.component';
-import { QuestionPaper3Component } from './modules/question-paper3/question-paper3.component';
 import { UserRolesComponent } from './modules/user-roles/user-roles.component';
 import { AuthGuard } from './auth/auth.guard';
 import { ExamPanelComponent } from './modules/exam-panel/exam-panel.component';
@@ -36,7 +34,7 @@ const routes: Routes = [{
     component: ExamPanelComponent,canActivate:[AuthGuard],data:{roleId:'Student'}
   },
       {
-        path: 'students',
+        path: 'candidates',
         component: StudentsComponent,canActivate:[AuthGuard], data:{roleId:'Admin'}
       },
       {
@@ -56,7 +54,7 @@ const routes: Routes = [{
         component: QuestionPaper1Component,canActivate:[AuthGuard], data:{roleId:'Admin'}
       },
       {
-        path: 'final-reports',
+        path: 'approval',
         component: FinalReportsComponent,canActivate:[AuthGuard], data:{roleId:'Admin'}
       },]
 },{

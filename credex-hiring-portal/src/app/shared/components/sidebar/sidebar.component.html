@@ -21,14 +21,14 @@ background-color: aliceblue;height: 98%;
   <h2
     matSubheader
     *ngIf="userAuthService.roleMatch('Admin')"
-    style="padding-left: 12px"
+    style="padding-left: 12px; color: rgb(180, 190, 248);"
   >
     Management
   </h2>
   <h2
     matSubheader
     *ngIf="userAuthService.roleMatch('Student')"
-    style="padding-left: 12px"
+    style="padding-left: 12px; color: rgb(180, 190, 248);"
   >
     Panel
   </h2>
@@ -66,7 +66,7 @@ background-color: aliceblue;height: 98%;
   >
   <a
     mat-list-item
-    *ngIf="userAuthService.roleMatch('Admin')"
+    *ngIf="userAuthService.roleMatch('Recruiter')"
     routerLinkActive="list-item-active"
     routerLink="/home/drives"
     >Drives</a
@@ -84,7 +84,7 @@ background-color: aliceblue;height: 98%;
   <h2
     matSubheader
     *ngIf="userAuthService.roleMatch('Admin')"
-    style="padding-left: 12px"
+    style="padding-left: 12px; color: rgb(180, 190, 248);"
   >
     HR Approval
   </h2>

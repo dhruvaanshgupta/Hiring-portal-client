@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DataAddEditComponent } from '../../data-add-edit/data-add-edit.component';
 import { CoreService } from '../../core/core.service'
 import { CollegesService } from '../colleges.service'
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-colleges',
@@ -34,7 +35,7 @@ export class CollegesComponent implements OnInit {
   constructor(
     private _dialog: MatDialog,
     private _empService: CollegesService,
-    private _coreService: CoreService
+    private _coreService: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -55,6 +56,7 @@ export class CollegesComponent implements OnInit {
   getCollegesList() {
     this._empService.getCollegesList().subscribe({
       next: (res) => {
+        console.log(res);
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
@@ -75,7 +77,8 @@ export class CollegesComponent implements OnInit {
   deleteCollege(id: number) {
     this._empService.deleteCollege(id).subscribe({
       next: (res) => {
-        this._coreService.openSnackBar('Employee deleted!', 'done');
+        console.log(res);
+        this._coreService.success('College deleted!', 'done');
         this.getCollegesList();
       },
       error: console.log,

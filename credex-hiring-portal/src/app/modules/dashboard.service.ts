@@ -11,18 +11,32 @@ export class DashboardService {
   constructor(private http: HttpClient) { }
 
   getChartData(): Observable<any> {
-    return this.http.get('http://localhost:8080/hiring_portal_war//api/campuses/counts');
+    return this.http.get('http://localhost:8080/hiring_portal_war/chart/counts');
   }
 
   cards() {
     return [71, 78, 39, 66];
   }
 
+  getTotalColleges(): Observable<number> {
+    // call the API endpoint to get the total number of colleges
+    return this.http.get<number>('http://localhost:8080/hiring_portal_war/Dashboard/getCollegeCount');
+  }
+
+  getSelectedStudents(): Observable<number> {
+    // call the API endpoint to get the total number of colleges
+    return this.http.get<number>('http://localhost:8080/hiring_portal_war/Dashboard/SelectedStudents');
+  }
+
+
+
   pieChart(): Observable<any[]> {
     return this.getChartData().pipe(
       map((data: any) => {
         const total = data.registeredStudentCount;
         const selected = data.selectedStudentCount;
+        console.log(total);
+        console.log(selected);
         const notSelected = total - selected;
         return [
           {

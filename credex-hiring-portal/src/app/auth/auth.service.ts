@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Recieve } from '../../interfaces/recieve.interface';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,13 @@ export class AuthService {
   GetAll(){
     return this.http.get<any>(this.apiurl);
   }
+
+  getAllStudentsCount() {
+    return this.http.get<any[]>(this.apiurl).pipe(
+      map(users => users.filter(user => user.roleId === "Student").length)
+    );
+  }
+
   Getbycode(code:any){
     return this.http.get(`${this.apiurl}?emailId=${code}`);
   }

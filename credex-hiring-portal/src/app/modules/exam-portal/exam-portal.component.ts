@@ -36,7 +36,6 @@ export class ExamPortalComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    // remove event listeners from window object
     window.removeEventListener('blur', this.handleBlur.bind(this));
     window.removeEventListener('focus', this.handleFocus.bind(this));
     document.removeEventListener('contextmenu', this.handleRightClick);
@@ -55,12 +54,11 @@ export class ExamPortalComponent implements OnInit {
   @HostListener('document:visibilitychange', ['$event'])
   onVisibilityChange(event: Event) {
     if (document.hidden) {
-      if (!this.isQuizCompleted) { // added if condition to check if quiz is not completed
+      if (!this.isQuizCompleted) {
         this.handleBlur();
       }
     } else {
-      if (!this.isQuizCompleted) { // added if condition to check if quiz is not completed
-        // restart the counter if the user returns to the test tab
+      if (!this.isQuizCompleted) {
         this.handleFocus();
       }
     }
@@ -190,7 +188,6 @@ export class ExamPortalComponent implements OnInit {
       console.log('User points updated.');
     });
     
-    // remove event listeners from window object
     window.removeEventListener('blur', this.handleBlur.bind(this));
     window.removeEventListener('focus', this.handleFocus.bind(this));
   }

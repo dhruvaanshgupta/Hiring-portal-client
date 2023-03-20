@@ -2,16 +2,16 @@
 
     <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
         <mat-card fxFlex="25">
-            <app-widget-card label="Total Colleges" total="200" percentage="50" [data]="cards"></app-widget-card>
+            <app-widget-card label="Total Colleges" total= {{total}}  percentage="50" [data]="cards"></app-widget-card>
     </mat-card>
     <mat-card fxFlex="25">
-        <app-widget-card label="Total Student Enrolled" total="15k" percentage="40" [data]="cards"></app-widget-card>
+        <app-widget-card label="Total Student Enrolled" total="{{totalStudents}}" percentage="40" [data]="cards"></app-widget-card>
     </mat-card>
     <mat-card fxFlex="25">
         <app-widget-card label="Teams Available" total="20" percentage="30" [data]="cards"></app-widget-card>
     </mat-card>
     <mat-card fxFlex="25">
-        <app-widget-card label="Selected Students" total="200" percentage="20" [data]="cards"></app-widget-card>
+        <app-widget-card label="Selected Students" total={{selectedStudents}} percentage="20" [data]="cards"></app-widget-card>
     </mat-card>
 </div>
 <br>    

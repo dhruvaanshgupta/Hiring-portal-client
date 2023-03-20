@@ -148,6 +148,7 @@ i {
           &::before {
             top: 50%;
             left: -12px;
+             justify-self: end;
             transform: translatey(-50%);
             border: 7px solid transparent;
             border-right-color: white;
@@ -155,7 +156,7 @@ i {
         }
       }
       .right {
-        grid-column: 5/-1;
+        grid-column: 5/3;
         justify-self: end;
         .message {
           margin-right: 10px;

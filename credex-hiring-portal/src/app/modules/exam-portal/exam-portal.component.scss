@@ -149,3 +149,33 @@ button[mat-button] {
     cursor: default;
   }
 }
+.result{
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  padding: 100px 40px;
+  position: relative;
+}
+section{
+  margin: 0 auto;
+  
+  h1{
+    font-weight: 500;
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  h2{
+    font-weight: 300;
+    font-size: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+li{
+    margin-bottom: 5px;
+    font-size: 18px;
+    
+  }
+}

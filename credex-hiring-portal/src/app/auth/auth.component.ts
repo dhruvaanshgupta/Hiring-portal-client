@@ -52,7 +52,7 @@ export class AuthComponent implements OnInit {
       '',
       Validators.compose([Validators.required, Validators.email])
     ),
-    roleId: this.builder.control(''),
+    roleId: this.builder.control('Student'),
   });
   proceedregisteration() {
     if (this.registerform.valid) {

@@ -28,25 +28,27 @@ export class DataAddEditComponent implements OnInit {
     private _coreService: CoreService
   ) {
     this.empForm = this._fb.group({
-    id : '',
-    Name : '',
-    Location : '',
-    CourseOffered : '',
-    Contact : '',
-    CurrentAccrediation : '',
+    collegeId : '',
+    collegeName : '',
+    location : '',
+    courseOffered : '',
+    contact : '',
+    currentAccrediation : '',
     action : ''
     });
   }
 
   ngOnInit(): void {
     this.empForm.patchValue(this.data);
+    this.empForm.patchValue(this.data.collegeId);
   }
 
   onFormSubmit() {
     if (this.empForm.valid) {
+      console.log(this.empForm.value);
       if (this.data) {
         this._empService
-          .updateCollege(this.data.id, this.empForm.value)
+          .updateCollege(this.empForm.value)
           .subscribe({
             next: (val: any) => {
               this._coreService.openSnackBar('College detail updated!');
@@ -58,6 +60,7 @@ export class DataAddEditComponent implements OnInit {
           });
       } else {
         this._empService.addCollege(this.empForm.value).subscribe({
+          
           next: (val: any) => {
             this._coreService.openSnackBar('College added successfully');
             this._dialogRef.close(true);

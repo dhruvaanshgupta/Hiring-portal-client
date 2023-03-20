@@ -1,174 +1,4 @@
 {
-
-  "reports": [
-    {
-      "id": 1,
-      "name": "John Doe",
-      "college_name": "ABC College",
-      "technical_score1": 80,
-      "technical_score2": 75,
-      "feedback": "Excellent performance",
-      "score_card": 100
-    },
-    {
-      "id": 2,
-      "name": "John Doe",
-      "college_name": "ABC College",
-      "technical_score1": 80,
-      "technical_score2": 75,
-      "feedback": "Excellent performance",
-      "score_card": 100
-    },
-    {
-      "id": 3,
-      "name": "John Doe",
-      "college_name": "ABC College",
-      "technical_score1": 80,
-      "technical_score2": 75,
-      "feedback": "Excellent performance",
-      "score_card": 100
-    },
-    {
-      "id": 4,
-      "name": "John Doe",
-      "college_name": "ABC College",
-      "technical_score1": 80,
-      "technical_score2": 75,
-      "feedback": "Excellent performance",
-      "score_card": 100
-    },
-    {
-      "id": 5,
-      "name": "John Doe",
-      "college_name": "ABC College",
-      "technical_score1": 80,
-      "technical_score2": 75,
-      "feedback": "Excellent performance",
-      "score_card": 100
-    },
-    {
-      "id": 6,
-      "name": "John Doe",
-      "college_name": "ABC College",
-      "technical_score1": 80,
-      "technical_score2": 75,
-      "feedback": "Excellent performance",
-      "score_card": 100
-    }
-  ],
-  "students": [
-    {
-      "id": 1,
-      "status": "ok",
-      "email": "abc@gmail.com",
-      "password": "!@#@%%GFDFDgg2222",
-      "FirstName": "John",
-      "LastName": "Peterson",
-      "roleId": "admin",
-      "language": "Java"
-    },
-    {
-      "id": 2,
-      "status": "ok",
-      "email": "abc@gmail.com",
-      "password": "!@#@%%GFDFDgg2222",
-      "FirstName": "John",
-      "LastName": "Peterson",
-      "roleId": "recruiter",
-      "language": "Java"
-    },
-    {
-      "id": 3,
-      "status": "ok",
-      "email": "abc@gmail.com",
-      "password": "!@#@%%GFDFDgg2222",
-      "FirstName": "John",
-      "LastName": "Peterson",
-      "roleId": "recruiter",
-      "language": "Java"
-    },
-    {
-      "id": 4,
-      "status": "ok",
-      "email": "abc@gmail.com",
-      "password": "!@#@%%GFDFDgg2222",
-      "FirstName": "John",
-      "LastName": "Peterson",
-      "roleId": "admin",
-      "language": "Java"
-    },
-    {
-      "id": 5,
-      "status": "ok",
-      "email": "abc@gmail.com",
-      "password": "!@#@%%GFDFDgg2222",
-      "FirstName": "John",
-      "LastName": "Peterson",
-      "roleId": "admin",
-      "language": "Java"
-    },
-    {
-      "id": 6,
-      "status": "ok",
-      "email": "abc@gmail.com",
-      "password": "!@#@%%GFDFDgg2222",
-      "FirstName": "John",
-      "LastName": "Peterson",
-      "roleId": "student",
-      "language": "Java"
-    },
-    {
-      "id": 7,
-      "status": "ok",
-      "email": "abc@gmail.com",
-      "password": "!@#@%%GFDFDgg2222",
-      "FirstName": "John",
-      "LastName": "Peterson",
-      "roleId": "student",
-      "language": "Java"
-    },
-    {
-      "id": 8,
-      "status": "ok",
-      "email": "abc@gmail.com",
-      "password": "!@#@%%GFDFDgg2222",
-      "FirstName": "John",
-      "LastName": "Peterson",
-      "roleId": "student",
-      "language": "Java"
-    }
-
-  ],
-  "questions": [
-    {
-      "content": "Which is not a programming language?",
-      "option1": "HTML",
-      "option2": "Java",
-      "option3": "C#",
-      "option4": "Javascript"
-    },
-    {
-      "content": "Which is not a programming language?",
-      "option1": "HTML",
-      "option2": "Java",
-      "option3": "C#",
-      "option4": "Javascript"
-    },
-    {
-      "content": "Which is not a programming language?",
-      "option1": "HTML",
-      "option2": "Java",
-      "option3": "C#",
-      "option4": "Javascript"
-    },
-    {
-      "content": "Which is not a programming language?",
-      "option1": "HTML",
-      "option2": "Java",
-      "option3": "C#",
-      "option4": "Javascript"
-    }
-  ],
   "users": [
     {
       "firstName": "Dhruv",
@@ -189,44 +19,49 @@
       "roleId": "Student"
     },
     {
+      "id": 3,
       "firstName": "Rudransh",
       "lastName": "Shukla",
       "password": "Abc@123456",
       "contact": 8130261903,
       "emailId": "abc@gmail.com",
-      "roleId": "Recruiter",
-      "id": 3
+      "roleId": "Student"
     },
     {
+      "id": 4,
       "firstName": "simran",
       "lastName": "simran",
       "password": "Abc@123456",
       "contact": 8130261903,
       "emailId": "simran123@gmail.com",
-      "roleId": "Student",
-      "experience":"",
-      "language":"",
-      "skills":"",
-      "resumeLink":"",
-      "id": 4
+      "roleId": "Student"
     },
     {
+      "id": 5,
       "firstName": "UserTest",
       "lastName": "2",
       "password": "Abc@123456",
       "contact": 8130261903,
       "emailId": "dhruv1323@gmail.com",
-      "roleId": "",
-      "id": 5
+      "roleId": "Student"
     },
     {
+      "id": 6,
       "firstName": "User",
       "lastName": "Test3",
       "password": "Abc@123456",
       "contact": 8130261903,
       "emailId": "dhruvzz@gmail.com",
-      "roleId": "",
-      "id": 6
+      "roleId": "Student"
+    },
+    {
+      "firstName": "Adarsh",
+      "lastName": "Bajyapee",
+      "password": "Abc@123456",
+      "contact": 8130261903,
+      "emailId": "abcd@gmail.com",
+      "roleId": "Recruiter",
+      "id": 7
     }
   ],
   "role": [
@@ -242,6 +77,11 @@
       "code": "Student",
       "name": "Student"
     }
+  ],
+  "scorecard": [
+    {
+      "points": 0,
+      "id": 4
+    }
   ]
 }
-
