@@ -14,6 +14,8 @@ import { UserRolesComponent } from './modules/user-roles/user-roles.component';
 import { AuthGuard } from './auth/auth.guard';
 import { ExamPanelComponent } from './modules/exam-panel/exam-panel.component';
 import { ForbiddenComponent } from './modules/forbidden/forbidden.component';
+import { StudentContactComponent } from './modules/student-contact/student-contact.component';
+import { FaqComponent } from './modules/faq/faq.component';
 
 
 
@@ -32,6 +34,12 @@ const routes: Routes = [{
   },{
     path: 'exam',
     component: ExamPanelComponent,canActivate:[AuthGuard],data:{roleId:'Student'}
+  },{
+    path: 'contact',
+    component: StudentContactComponent,canActivate:[AuthGuard],data:{roleId:'Student'}
+  },{
+    path: 'faq',
+    component: FaqComponent,canActivate:[AuthGuard],data:{roleId:'Student'}
   },
       {
         path: 'candidates',

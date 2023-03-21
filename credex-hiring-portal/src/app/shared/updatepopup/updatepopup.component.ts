@@ -34,6 +34,7 @@ export class UpdatepopupComponent implements OnInit{
 
   ngOnInit(): void {
     this.service.GetAllRole().subscribe(res=>{
+      console.log(res);
       this.rolelist=res;
     })
     if(this.data.usercode!=null && this.data.usercode!=''){

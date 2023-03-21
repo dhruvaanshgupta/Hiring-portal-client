@@ -6,8 +6,8 @@
             <mat-label>Role</mat-label>
             <mat-select formControlName="roleId">
                 <mat-option value=''>Select Role</mat-option>
-                <mat-option *ngFor="let item of rolelist" [value]="item.code">
-                    {{item.name}}
+                <mat-option *ngFor="let item of rolelist" [value]="item.roleName">
+                    {{item.roleName}}
                 </mat-option>
             </mat-select>
         </mat-form-field>

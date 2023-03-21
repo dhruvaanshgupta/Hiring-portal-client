@@ -39,7 +39,7 @@ export class AuthService {
   }
 
   GetAllRole(){
-    return this.http.get<Recieve>('http://localhost:3000/role');
+    return this.http.get<Recieve>('http://localhost:8080/hiring_portal_war/role/get');
   }
 
   Proceedregister(inputdata?:any){

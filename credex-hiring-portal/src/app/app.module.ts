@@ -39,6 +39,7 @@ import { UserAddFormComponent } from './user-add-form/user-add-form.component';
 import { ExamPanelComponent } from './modules/exam-panel/exam-panel.component';
 import { ForbiddenComponent } from './modules/forbidden/forbidden.component';
 import { ExamPortalComponent } from './modules/exam-portal/exam-portal.component';
+import { StudentContactComponent } from './modules/student-contact/student-contact.component';
 
 
 
@@ -55,8 +56,7 @@ import { ExamPortalComponent } from './modules/exam-portal/exam-portal.component
     FinalReportsComponent,
     UserRolesComponent,
     UserAddFormComponent,
-    ForbiddenComponent,
-
+    ForbiddenComponent
   ],
   imports: [
     BrowserModule,

@@ -66,16 +66,16 @@
   ],
   "role": [
     {
-      "code": "Admin",
-      "name": "Admin"
+      "roleId": 1,
+      "roleName": "Admin"
     },
     {
-      "code": "Recruiter",
-      "name": "Recruiter"
+      "roleId": 2,
+      "roleName": "Recruiter"
     },
     {
-      "code": "Student",
-      "name": "Student"
+      "roleId": 3,
+      "roleName": "Student"
     }
   ],
   "scorecard": [

@@ -34,6 +34,8 @@ import { MatCheckbox, MatCheckboxModule } from '@angular/material/checkbox';
 import { ExamPortalComponent } from 'src/app/modules/exam-portal/exam-portal.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatListModule} from '@angular/material/list';
+import { StudentContactComponent } from 'src/app/modules/student-contact/student-contact.component';
+import { FaqComponent } from 'src/app/modules/faq/faq.component';
 
 
 
@@ -43,7 +45,10 @@ import {MatListModule} from '@angular/material/list';
     DashboardComponent,
     CollegesComponent,
     ExamPanelComponent,
-    ExamPortalComponent
+    ExamPortalComponent,
+    StudentContactComponent,
+    FaqComponent
+    
     
 
   ],

@@ -49,6 +49,21 @@ background-color: aliceblue;height: 98%;
   routerLink="/home/exam"
   >Examination</a
 >
+<a
+  mat-list-item
+  *ngIf="userAuthService.roleMatch('Student')"
+  routerLinkActive="list-item-active"
+  routerLink="/home/faq"
+  >FAQs</a
+>
+
+<a
+  mat-list-item
+  *ngIf="userAuthService.roleMatch('Student')"
+  routerLinkActive="list-item-active"
+  routerLink="/home/contact"
+  >Contact Us</a
+>
 
   <a
     mat-list-item

@@ -5,8 +5,8 @@
       <!-- (click)="toggleSideBar()" -->
       <mat-icon>menu</mat-icon>
     </button>
-    <a routerLink="/home/dashboard" style="cursor: pointer;"><span > CREDE<span class="x-style">X</span></span></a>
-
+    <a *ngIf="userAuthService.roleMatch('Admin')" routerLink="/home/dashboard" style="cursor: pointer;"><span > CREDE<span class="x-style">X</span></span></a>
+    <a *ngIf="userAuthService.roleMatch('Student')" routerLink="/home/exam" style="cursor: pointer;"><span > CREDE<span class="x-style">X</span></span></a>
     
 
     <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
