@@ -9,13 +9,13 @@ import { DrivesComponent } from './modules/drives/drives.component';
 import { QuestionsComponent } from './modules/questions/questions.component';
 import { AddQuestionsComponent } from './modules/add-questions/add-questions.component';
 import { FinalReportsComponent } from './modules/final-reports/final-reports.component';
-import { QuestionPaper1Component } from './modules/question-paper1/question-paper1.component';
 import { UserRolesComponent } from './modules/user-roles/user-roles.component';
 import { AuthGuard } from './auth/auth.guard';
 import { ExamPanelComponent } from './modules/exam-panel/exam-panel.component';
 import { ForbiddenComponent } from './modules/forbidden/forbidden.component';
 import { StudentContactComponent } from './modules/student-contact/student-contact.component';
 import { FaqComponent } from './modules/faq/faq.component';
+import { QuestionListComponent } from './modules/question-list/question-list.component';
 
 
 
@@ -58,8 +58,8 @@ const routes: Routes = [{
         component: AddQuestionsComponent,canActivate:[AuthGuard], data:{roleId:'Admin'}
       },
       {
-        path: 'question-paper1',
-        component: QuestionPaper1Component,canActivate:[AuthGuard], data:{roleId:'Admin'}
+        path: 'questionlist',
+        component: QuestionListComponent,canActivate:[AuthGuard], data:{roleId:'Admin'}
       },
       {
         path: 'approval',

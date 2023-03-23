@@ -1,0 +1,11 @@
+<h1>Question Paper</h1>
+
+<div *ngFor="let question of questions[0].questions">
+  <h2>{{ question.questionText }}</h2>
+  <ul>
+    <li *ngFor="let option of question.options">
+      {{ option.text }}
+    </li>
+  </ul>
+  <p>Answer : {{ question.explanation }}</p>
+</div>

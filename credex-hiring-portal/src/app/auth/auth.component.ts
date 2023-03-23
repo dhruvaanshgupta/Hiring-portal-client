@@ -1,16 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormControlName,
-  FormsModule,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
-import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-auth',
@@ -19,6 +12,7 @@ import { NotifierService } from 'angular-notifier';
 })
 export class AuthComponent implements OnInit {
   isSignUpMode = false;
+  userdata: any;
 
   constructor(
     private builder: FormBuilder,
@@ -54,6 +48,9 @@ export class AuthComponent implements OnInit {
     ),
     roleId: this.builder.control('Student'),
   });
+
+  // REGISTRATION
+
   proceedregisteration() {
     if (this.registerform.valid) {
       this.service.Proceedregister(this.registerform.value).subscribe({
@@ -73,7 +70,7 @@ export class AuthComponent implements OnInit {
     }
   }
 
-  userdata: any;
+  // Login
 
   loginform = this.builder.group({
     emailId: this.builder.control('', Validators.required),
@@ -95,10 +92,9 @@ export class AuthComponent implements OnInit {
           ) {
             sessionStorage.setItem('emailId', user.emailId);
             sessionStorage.setItem('roleId', user.roleId);
-            sessionStorage.setItem('id',user.id);
+            sessionStorage.setItem('id', user.id);
             this.service.navigate();
             //funtion call karega jo services mein karna
-            
           } else {
             this.toastr.error('Invalid Credentials');
           }

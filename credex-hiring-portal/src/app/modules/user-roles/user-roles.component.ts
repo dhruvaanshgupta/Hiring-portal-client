@@ -24,7 +24,6 @@ export class UserRolesComponent {
 
   loadUser() {
     this.service.GetAll().subscribe((res) => {
-      console.log('entering loop');
       this.userlist = res;
       this.dataSource = new MatTableDataSource(this.userlist);
       this.dataSource.paginator = this.paginator;

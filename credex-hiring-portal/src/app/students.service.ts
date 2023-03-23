@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -85,6 +84,6 @@ export class StudentService {
   constructor(private http: HttpClient) {}
 
   getStudentList(): Observable<any> {
-    return this.http.get('http://localhost:3000/students');
+    return this.http.get('http://localhost:3000/users');
   }
 }

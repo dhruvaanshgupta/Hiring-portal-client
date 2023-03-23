@@ -36,6 +36,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatListModule} from '@angular/material/list';
 import { StudentContactComponent } from 'src/app/modules/student-contact/student-contact.component';
 import { FaqComponent } from 'src/app/modules/faq/faq.component';
+import { QuestionService } from 'src/app/modules/exam-portal/question.service';
+import { QuestionListComponent } from 'src/app/modules/question-list/question-list.component';
 
 
 
@@ -47,7 +49,8 @@ import { FaqComponent } from 'src/app/modules/faq/faq.component';
     ExamPanelComponent,
     ExamPortalComponent,
     StudentContactComponent,
-    FaqComponent
+    FaqComponent,
+    QuestionListComponent
     
     
 
@@ -80,13 +83,14 @@ import { FaqComponent } from 'src/app/modules/faq/faq.component';
     MatStepperModule,
     MatCheckboxModule,
     MatProgressBarModule,
-    MatListModule
+    MatListModule,
 
 
 
   ],
   providers: [
-    DashboardService
+    DashboardService,
+    QuestionService
   ]
 })
 export class DefaultModule { }

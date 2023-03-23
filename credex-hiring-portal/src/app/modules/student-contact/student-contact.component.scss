@@ -8,10 +8,10 @@
 .contact-form-container {
   background: aliceblue;
   font-family: "Lato", sans-serif;
-  position: sticky;
-  left: 400px;
-  top: 55px;
-  height: 700px;
+  position: relative;
+  left: 40px;
+  top: 0px;
+  height: 100%;
 }
 
 .contact-us {
@@ -148,7 +148,7 @@ form button {
   outline: none;
 }
 
-.contact-form {
+.contact{
   padding-bottom: 40px;
 }
 
@@ -193,6 +193,6 @@ body {
   grid-area: email;
 }
 
-.contact-form {
+.contact {
   grid-area: contact-form;
 }

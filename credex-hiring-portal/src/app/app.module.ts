@@ -31,7 +31,6 @@ import { AddQuestionsComponent } from './modules/add-questions/add-questions.com
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
-import { QuestionPaper1Component } from './modules/question-paper1/question-paper1.component';
 import { MatCardActions } from '@angular/material/card';
 import { FinalReportsComponent } from './modules/final-reports/final-reports.component';
 import { UserRolesComponent } from './modules/user-roles/user-roles.component';
@@ -40,7 +39,6 @@ import { ExamPanelComponent } from './modules/exam-panel/exam-panel.component';
 import { ForbiddenComponent } from './modules/forbidden/forbidden.component';
 import { ExamPortalComponent } from './modules/exam-portal/exam-portal.component';
 import { StudentContactComponent } from './modules/student-contact/student-contact.component';
-
 
 
 @NgModule({
@@ -52,11 +50,10 @@ import { StudentContactComponent } from './modules/student-contact/student-conta
     StudentDetailsComponent,
     QuestionsComponent,
     AddQuestionsComponent,
-    QuestionPaper1Component,
     FinalReportsComponent,
     UserRolesComponent,
     UserAddFormComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
   ],
   imports: [
     BrowserModule,

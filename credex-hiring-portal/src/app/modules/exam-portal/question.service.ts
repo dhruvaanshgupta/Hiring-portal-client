@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Recieve } from 'src/interfaces/recieve.interface';
 
@@ -8,9 +8,10 @@ import { Recieve } from 'src/interfaces/recieve.interface';
 export class QuestionService {
 
   constructor(private http: HttpClient){}
+  
 
   getQuestionJson(){
-    return this.http.get<any>("../../../assets/questions.json");
+    return this.http.get<any>("http://localhost:3000/questions");
   }
 
   updateUserPoints(points: number, id: number) {
@@ -19,4 +20,7 @@ export class QuestionService {
     return this.http.put(url, body);
   }
   
-}
+  
+
+  }
+  

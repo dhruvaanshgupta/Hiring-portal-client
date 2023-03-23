@@ -1,41 +1,38 @@
 <mat-toolbar color="primary">
-  <span><b>Create Questions Panel</b></span>
-  <div mat-dialog-actions class="container ">
-    <button align="end" mat-raised-button class="add-questions-btn" [routerLink]="'/add-questions'">
-      Add questions
-    </button>
-  </div>
+  <span>MANAGE QUESTIONNAIRE</span>
+  
   <span class="example-spacer"></span>
 </mat-toolbar>
+<mat-card *ngIf="fileUploaded">
+  <ul class="cards">
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img src="../../../assets/img/credexLogo.jpg"></div>
+        <div class="card_content">
+          <p class="card_text"></p>
+          <button mat-raised-button color="primary" class="btn card_btn" (click)="viewQuestions()">View Questions</button>
+        </div>
+      </div>
+    </li>
+    </ul>
+    </mat-card>
+  
+<mat-card *ngIf="!fileUploaded">
+  <ul class="cards">
+    <li class="cards_item">
+      <div class="card">
+        <div class="card_image"><img src="https://png.pngitem.com/pimgs/s/500-5002749_add-new-questions-transparent-question-icon-png-png.png"></div>
+        <div class="card_content">
+          <p class="card_text"></p>
+          <label id="largeFile" for="file">
+            <input type="file" id="file" accept=".json " (change)="onFileSelected($event)"/>
+          </label>
 
-<!-- <div class="container" align="right">
-  <mat-dialog-actions >
-    <button mat-raised-button class="add-questions-btn" color="primary" [routerLink]="'/add-questions'">
-      Add questions
-    </button>
-  </mat-dialog-actions>
-</div> -->
+        </div>
+      </div>
+    </li>
+  </ul>
+  </mat-card>
 
-<mat-card>
-  <mat-list>
-    <div mat-subheader>
-      <h1>Drives Question Papers</h1>
-    </div>
-    <mat-list-item>
-      <div mat-line class="QPbutton">
-        <!-- <mat-icon mat-list-icon> folder</mat-icon> -->
-        <button mat-raised-button color="primary" [routerLink]="'/question-paper1'">Question Paper 1</button>
-      </div>
-    </mat-list-item>
-    <!-- <mat-list-item>
-      <div mat-line class="QPbutton">
-        <button mat-raised-button color="primary" [routerLink]="'/question-paper2'">Question Paper 2</button>
-      </div>
-    </mat-list-item>
-    <mat-list-item>
-      <div mat-line class="QPbutton">
-        <button mat-raised-button color="primary" [routerLink]="'/question-paper3'">Question Paper 3</button>
-      </div>
-    </mat-list-item> -->
-  </mat-list>
-</mat-card>
+  <div id="question-container">
+    

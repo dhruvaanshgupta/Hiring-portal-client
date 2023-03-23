@@ -1,6 +1,7 @@
+import { Target } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { EmailService } from '../../services/emailservice.service';
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 
 @Component({
   selector: 'app-student-contact',
@@ -10,18 +11,30 @@ import { EmailService } from '../../services/emailservice.service';
 export class StudentContactComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, private emailService: EmailService) {}
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      subject: ['', Validators.required],
+      user_name: ['', Validators.required],
+      user_email: ['', [Validators.required, Validators.email]],
       message: ['', Validators.required]
     });
+    emailjs.init('WdcU-jA-FDRTSVUZV');
   }
 
   onSubmit(): void {
-   
+    const btn = document.getElementById('button') as HTMLButtonElement;
+    btn.value = 'Sending...';
+
+    const serviceID = 'service_s1xvbg9';
+    const templateID = 'template_e9juef1';
+    emailjs.sendForm(serviceID, templateID, 'contact-form')
+      .then((response: EmailJSResponseStatus) => {
+        btn.value = 'Send Email';
+        alert('Sent!');
+      }, (error) => {
+        btn.value = 'Send Email';
+        alert(JSON.stringify(error));
+      });
   }
 }

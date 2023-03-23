@@ -43,7 +43,8 @@ export class ExamPortalComponent implements OnInit {
 
   getAllQuestion() {
     this.questionService.getQuestionJson().subscribe((res) => {
-      this.questionList = res.questions;
+      console.log(res[0].questions);
+      this.questionList = res[0].questions;
     });
   }
 
