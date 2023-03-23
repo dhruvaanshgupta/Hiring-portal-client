@@ -11,7 +11,7 @@ export class StudentDetailsService {
   }
 
   constructor(private http: HttpClient) { }
-  apiUrl = 'http://localhost:3000/students';
+  apiUrl = 'http://localhost:3000/users';
 
   getStudentDetailsById(id: any): Observable<any> {
     return this.http.get(this.apiUrl + '/' + id);

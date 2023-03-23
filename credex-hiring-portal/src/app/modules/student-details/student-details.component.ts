@@ -17,10 +17,13 @@ export class StudentDetailsComponent implements OnInit {
   public id: number;
 
   constructor(
+    private dialogRef: MatDialogRef<StudentDetailsComponent>,
+    private formBuilder: FormBuilder,
     private service: StudentDetailsService,
     @Inject(MAT_DIALOG_DATA) public data: { id: number }
   ) {
     this.id = data.id;
+    this.empForm = this.formBuilder.group({});
   }
 
   ngOnInit() {

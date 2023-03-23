@@ -1,11 +1,49 @@
-form{
-  width:500px
-}
-.title{
-  text-align: center;
-}
-.container{
-  width:400px;
+.bootstrap-wrapper{
+  width: 700px;
 }
 
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
 
+.container {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+mat-divider {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+mat-dialog-actions {
+  justify-content: center;
+}
+
+button {
+  background-color: #f44336;
+  color: #ffffff;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #e53935;
+  }
+}

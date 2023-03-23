@@ -52,8 +52,10 @@ export class StudentsComponent implements OnInit {
 
   
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(StudentDetailsComponent);
+  openDialog(id: number): void {
+    const dialogRef = this.dialog.open(StudentDetailsComponent, {
+      data: { id },
+    });
   }
 
   applyFilter(event: Event){
