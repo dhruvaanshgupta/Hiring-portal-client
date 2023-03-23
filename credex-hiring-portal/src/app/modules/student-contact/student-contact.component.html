@@ -1,47 +1,63 @@
-<div class="container-new" style="width:50%;left: 380px;position: absolute ;height: 90%; background-color: white;">
-<div class="contact-form-container">
+<div
+  class="container-new"
+  style="
+    width: 50%;
+    left: 380px;
+    position: absolute;
+    height: 90%;
+    background-color: white;
+  "
+>
+  <div class="contact-form-container">
     <div class="contact-us">
       <div class="contact-header">
-        <h1>
-          &#9135;&#9135;&#9135;&#9135;&nbsp;&nbsp;CONTACT US
-        </h1>
+        <h1>&#9135;&#9135;&#9135;&#9135;&nbsp;&nbsp;CONTACT US</h1>
       </div>
-    
     </div>
     <div class="header">
-      <h1>
-        Need Help?
-      </h1>
-      <h2>
-        Mail us. 
-      </h2>
+      <h1>Need Help?</h1>
+      <h2>Mail us.</h2>
     </div>
     <div class="address">
       <i class="material-icons">place</i>
-      <h3>
-        Noida, India
-      </h3>
+      <h3>Noida, India</h3>
     </div>
     <div class="phone">
       <i class="material-icons">phone</i>
-      <h3>
-        +1-408-703-6930
-      </h3>
+      <h3>+1-408-703-6930</h3>
     </div>
     <div class="email">
       <i class="material-icons">email</i>
-      <h3>
-        info@credextechnology.com
-      </h3>
+      <h3>info@credextechnology.com</h3>
     </div>
     <div class="contact">
-        <form [formGroup]="form" id="contact-form" class="contact-form" (submit)="onSubmit()">
-        <input placeholder="Name" type="text" formControlName="user_name" id="user_name"/>
-        <input placeholder="Email" type="email" formControlName="user_email" id="user_email"/>
-        <input placeholder="Describe the issue..." type="text" rows="4" formControlName="message" id="message">
-        <button type="submit" id="button" value="Send">SEND </button>
+      <form
+        [formGroup]="form"
+        id="contact-form"
+        class="contact-form"
+        (submit)="onSubmit()"
+      >
+        <input
+          placeholder="Name"
+          type="text"
+          formControlName="user_name"
+          id="user_name"
+        />
+        <input
+          placeholder="Email"
+          type="email"
+          formControlName="user_email"
+          id="user_email"
+        />
+        <input
+          placeholder="Describe the issue..."
+          type="text"
+          rows="4"
+          formControlName="message"
+          id="message"
+        />
+        <button type="submit" id="button" value="Send">SEND</button>
       </form>
     </div>
   </div>
-  </div>
-  
+</div>

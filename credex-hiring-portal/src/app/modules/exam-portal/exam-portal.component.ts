@@ -65,34 +65,25 @@ export class ExamPortalComponent implements OnInit {
     }
   }
 
-  nextQuestion(currentQno: number) {
+  completionChecker(currentQno: number){
     if (currentQno === this.questionList.length) {
       this.isQuizCompleted = true;
       localStorage.setItem('isQuizCompleted', JSON.stringify(true));
       this.stopCounter();
       const id = +sessionStorage.getItem('id');
-    this.questionService.updateUserPoints(this.points, id).subscribe(() => {
-      console.log('User points updated.');
-    });
+      this.questionService.updateUserPoints(this.points, id).subscribe(() => {
+      });
     }
+  }
+
+  nextQuestion(currentQno: number) {
+    this.completionChecker(currentQno);
     this.currentQuestion++;
     this.resetCounter();
   }
 
-  // previousQuestion() {
-  //   this.currentQuestion--;
-  // }
-
   answer(currentQno: number, option: any) {
-    if (currentQno === this.questionList.length) {
-      this.isQuizCompleted = true;
-      localStorage.setItem('isQuizCompleted', JSON.stringify(true));
-      this.stopCounter();
-      const id = +sessionStorage.getItem('id');
-    this.questionService.updateUserPoints(this.points, id).subscribe(() => {
-      console.log('User points updated.');
-    });
-    }
+    this.completionChecker(currentQno);
 
     if (option.correct) {
       this.points += 10;
@@ -116,15 +107,7 @@ export class ExamPortalComponent implements OnInit {
     this.interval$ = interval(1000).subscribe((val) => {
       this.counter--;
       if (this.counter === 0) {
-        if (currentQno === this.questionList.length) {
-          this.isQuizCompleted = true;
-          localStorage.setItem('isQuizCompleted', JSON.stringify(true));
-          this.stopCounter();
-          const id = +sessionStorage.getItem('id');
-    this.questionService.updateUserPoints(this.points, id).subscribe(() => {
-      console.log('User points updated.');
-    });
-        }
+        this.completionChecker(currentQno);
         this.currentQuestion++;
         this.counter = 60;
       }
@@ -146,35 +129,39 @@ export class ExamPortalComponent implements OnInit {
   }
 
   getProgressPercent() {
-    this.progress = ((this.currentQuestion / this.questionList.length) * 100).toString();
+    this.progress = (
+      (this.currentQuestion / this.questionList.length) *
+      100
+    ).toString();
     return this.progress;
-
-
-    
   }
 
   handleBlur() {
     if (this.isQuizCompleted) {
       return;
     }
-    
+
     this.timeoutId = setTimeout(() => {
       if (!document.hasFocus() && !this.isWarningShown) {
-        alert("Warning: You have left the test tab. Please return to the test and do not leave the tab again, or your test will be auto-submitted.");
+        alert(
+          'Warning: You have left the test tab. Please return to the test and do not leave the tab again, or your test will be auto-submitted.'
+        );
         this.switchTabCount++;
         this.isWarningShown = true;
       }
     }, 10);
   }
-  
+
   handleFocus() {
     if (this.isQuizCompleted) {
       return;
     }
-    
+
     clearTimeout(this.timeoutId);
-    if (this.isWarningShown && this.switchTabCount===2) {
-      alert("Warning: Your test has been auto-submitted due to leaving the test tab multiple times.");
+    if (this.isWarningShown && this.switchTabCount === 2) {
+      alert(
+        'Warning: Your test has been auto-submitted due to leaving the test tab multiple times.'
+      );
       this.submitTest();
     }
     this.isWarningShown = false;
@@ -186,11 +173,9 @@ export class ExamPortalComponent implements OnInit {
     this.stopCounter();
     const id = +sessionStorage.getItem('id');
     this.questionService.updateUserPoints(this.points, id).subscribe(() => {
-      console.log('User points updated.');
     });
-    
+
     window.removeEventListener('blur', this.handleBlur.bind(this));
     window.removeEventListener('focus', this.handleFocus.bind(this));
   }
-  
 }

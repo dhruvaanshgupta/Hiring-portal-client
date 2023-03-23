@@ -41,7 +41,13 @@ export class UserRolesComponent {
     }
   }
 
-  displayedColumns: string[] = ['id', 'firstName', 'emailId', 'roleId', 'action'];
+  displayedColumns: string[] = [
+    'id',
+    'firstName',
+    'emailId',
+    'roleId',
+    'action',
+  ];
 
   UpdateUser(code: any) {
     const popup = this.dialog.open(UpdatepopupComponent, {

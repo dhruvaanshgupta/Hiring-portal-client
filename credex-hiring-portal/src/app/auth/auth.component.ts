@@ -51,9 +51,9 @@ export class AuthComponent implements OnInit {
 
   // REGISTRATION
 
-  proceedregisteration() {
+  proceedRegisteration() {
     if (this.registerform.valid) {
-      this.service.Proceedregister(this.registerform.value).subscribe({
+      this.service.ProceedRegister(this.registerform.value).subscribe({
         next: (result) => {
           this.toastr.success('Registered successfully');
 
@@ -77,7 +77,7 @@ export class AuthComponent implements OnInit {
     password: this.builder.control('', Validators.required),
   });
 
-  proceedlogin() {
+  proceedLogin() {
     if (this.loginform.valid) {
       this.service
         .Getbycode(this.loginform.value.emailId)

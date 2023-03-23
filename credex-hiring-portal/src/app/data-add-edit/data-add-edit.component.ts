@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { CoreService } from '../core/core.service';
 import { CollegesService } from '../../app/modules/colleges.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-data-add-edit',
@@ -21,13 +21,13 @@ export class DataAddEditComponent implements OnInit {
   ];
 
   constructor(
-    private _fb: FormBuilder,
-    private _empService: CollegesService,
-    private _dialogRef: MatDialogRef<DataAddEditComponent>,
+    private fb: FormBuilder,
+    private empService: CollegesService,
+    private dialogRef: MatDialogRef<DataAddEditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private _coreService: CoreService
+    private toastr: ToastrService
   ) {
-    this.empForm = this._fb.group({
+    this.empForm = this.fb.group({
     collegeId : '',
     collegeName : '',
     location : '',
@@ -47,26 +47,26 @@ export class DataAddEditComponent implements OnInit {
     if (this.empForm.valid) {
       console.log(this.empForm.value);
       if (this.data) {
-        this._empService
+        this.empService
           .updateCollege(this.empForm.value)
           .subscribe({
             next: (val: any) => {
-              this._coreService.openSnackBar('College detail updated!');
-              this._dialogRef.close(true);
+              this.toastr.success('College detail updated!');
+              this.dialogRef.close(true);
             },
             error: (err: any) => {
-              console.error(err);
+              this.toastr.warning('Something went wrong.');
             },
           });
       } else {
-        this._empService.addCollege(this.empForm.value).subscribe({
+        this.empService.addCollege(this.empForm.value).subscribe({
           
           next: (val: any) => {
-            this._coreService.openSnackBar('College added successfully');
-            this._dialogRef.close(true);
+            this.toastr.success('College added successfully');
+            this.dialogRef.close(true);
           },
           error: (err: any) => {
-            console.error(err);
+            this.toastr.warning('Something went wrong.');
           },
         });
       }

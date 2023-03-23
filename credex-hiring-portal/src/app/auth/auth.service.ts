@@ -42,7 +42,7 @@ export class AuthService {
     return this.http.get<Recieve>('http://localhost:8080/hiring_portal_war/role/get');
   }
 
-  Proceedregister(inputdata?:any){
+  ProceedRegister(inputdata?:any){
     return this.http.post<any>(this.apiurl,inputdata);
   }
   Updateuser(id:any,inputdata:any){

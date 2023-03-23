@@ -17,61 +17,95 @@ import { StudentContactComponent } from './modules/student-contact/student-conta
 import { FaqComponent } from './modules/faq/faq.component';
 import { QuestionListComponent } from './modules/question-list/question-list.component';
 
-
-
-const routes: Routes = [{
-  path: 'home',
-  component: DefaultComponent,canActivate:[AuthGuard],
-  children: [{
-    path: 'dashboard',
-    component: DashboardComponent,canActivate:[AuthGuard], data:{roleId:'Admin'}
-  },{
-    path: 'colleges',
-    component: CollegesComponent,canActivate:[AuthGuard],data:{roleId:'Admin'}
-  },{
-    path: 'user-roles',
-    component: UserRolesComponent,canActivate:[AuthGuard],data:{roleId:'Admin'}
-  },{
-    path: 'exam',
-    component: ExamPanelComponent,canActivate:[AuthGuard],data:{roleId:'Student'}
-  },{
-    path: 'contact',
-    component: StudentContactComponent,canActivate:[AuthGuard],data:{roleId:'Student'}
-  },{
-    path: 'faq',
-    component: FaqComponent,canActivate:[AuthGuard],data:{roleId:'Student'}
-  },
+const routes: Routes = [
+  {
+    path: 'home',
+    component: DefaultComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'dashboard',
+        component: DashboardComponent,
+        canActivate: [AuthGuard],
+        data: { roleId: 'Admin' },
+      },
+      {
+        path: 'colleges',
+        component: CollegesComponent,
+        canActivate: [AuthGuard],
+        data: { roleId: 'Admin' },
+      },
+      {
+        path: 'user-roles',
+        component: UserRolesComponent,
+        canActivate: [AuthGuard],
+        data: { roleId: 'Admin' },
+      },
+      {
+        path: 'exam',
+        component: ExamPanelComponent,
+        canActivate: [AuthGuard],
+        data: { roleId: 'Student' },
+      },
+      {
+        path: 'contact',
+        component: StudentContactComponent,
+        canActivate: [AuthGuard],
+        data: { roleId: 'Student' },
+      },
+      {
+        path: 'faq',
+        component: FaqComponent,
+        canActivate: [AuthGuard],
+        data: { roleId: 'Student' },
+      },
       {
         path: 'candidates',
-        component: StudentsComponent,canActivate:[AuthGuard], data:{roleId:'Admin'}
+        component: StudentsComponent,
+        canActivate: [AuthGuard],
+        data: { roleId: 'Admin' },
       },
       {
         path: 'drives',
-        component: DrivesComponent,canActivate:[AuthGuard], data:{roleId:'Admin'}
+        component: DrivesComponent,
+        canActivate: [AuthGuard],
+        data: { roleId: 'Admin' },
       },
       {
         path: 'questions',
-        component: QuestionsComponent,canActivate:[AuthGuard], data:{roleId:'Admin'}
+        component: QuestionsComponent,
+        canActivate: [AuthGuard],
+        data: { roleId: 'Admin' },
       },
       {
         path: 'add-questions',
-        component: AddQuestionsComponent,canActivate:[AuthGuard], data:{roleId:'Admin'}
+        component: AddQuestionsComponent,
+        canActivate: [AuthGuard],
+        data: { roleId: 'Admin' },
       },
       {
         path: 'questionlist',
-        component: QuestionListComponent,canActivate:[AuthGuard], data:{roleId:'Admin'}
+        component: QuestionListComponent,
+        canActivate: [AuthGuard],
+        data: { roleId: 'Admin' },
       },
       {
         path: 'approval',
-        component: FinalReportsComponent,canActivate:[AuthGuard], data:{roleId:'Admin'}
-      },]
-},{
-  path: 'auth',
-  component: AuthComponent
-},{
-  path: 'forbidden',
-  component: ForbiddenComponent
-}];
+        component: FinalReportsComponent,
+        canActivate: [AuthGuard],
+        data: { roleId: 'Admin' },
+      },
+    ],
+  },
+  {
+    path: 'auth',
+    component: AuthComponent,
+  },
+  {
+    path: 'forbidden',
+    component: ForbiddenComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

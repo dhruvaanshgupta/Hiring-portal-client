@@ -1,76 +1,87 @@
 <mat-toolbar color="primary">
   <span>MANAGE COLLEGES</span>
   <span class="example-spacer"></span>
-  <button mat-raised-button (click)="openAddEditEmpForm()">
-    ADD COLLEGE
-  </button>
+  <button mat-raised-button (click)="openAddEditForm()">ADD COLLEGE</button>
 </mat-toolbar>
 
-
-
 <div class="main-body">
-
   <mat-form-field>
     <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="search college" #input>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="search college"
+      #input
+    />
   </mat-form-field>
 
   <div class="table-container">
     <table mat-table [dataSource]="dataSource" matSort>
-
       <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-        <td mat-cell *matCellDef="let row"> {{row.collegeId}} </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+        <td mat-cell *matCellDef="let row">{{ row.collegeId }}</td>
       </ng-container>
 
       <ng-container matColumnDef="Name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-        <td mat-cell *matCellDef="let row"> {{row.collegeName}}</td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+        <td mat-cell *matCellDef="let row">{{ row.collegeName }}</td>
       </ng-container>
 
       <ng-container matColumnDef="Location">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Location </th>
-        <td mat-cell *matCellDef="let row"> {{row.location}}</td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Location</th>
+        <td mat-cell *matCellDef="let row">{{ row.location }}</td>
       </ng-container>
 
       <ng-container matColumnDef="CourseOffered">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Course Offered </th>
-        <td mat-cell *matCellDef="let row"> {{row.courseOffered}}</td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Course Offered
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.courseOffered }}</td>
       </ng-container>
 
       <ng-container matColumnDef="CurrentAccrediation">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Current Accrediation </th>
-        <td mat-cell *matCellDef="let row"> {{row.currentAccrediation}}</td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Current Accrediation
+        </th>
+        <td mat-cell *matCellDef="let row">{{ row.currentAccrediation }}</td>
       </ng-container>
 
-
       <ng-container matColumnDef="Contact">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Contact </th>
-        <td mat-cell *matCellDef="let row"> {{row.contact}}</td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Contact</th>
+        <td mat-cell *matCellDef="let row">{{ row.contact }}</td>
       </ng-container>
 
       <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
         <td mat-cell *matCellDef="let row">
           <button mat-icon-button color="primary" (click)="openEditForm(row)">
             <mat-icon>edit</mat-icon>
           </button>
-          <button mat-icon-button color="warn" (click)="deleteCollege(row.collegeId)">
+          <button
+            mat-icon-button
+            color="warn"
+            (click)="deleteCollege(row.collegeId)"
+          >
             <mat-icon>delete</mat-icon>
           </button>
         </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
-     
       <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        <td class="mat-cell" colspan="4">
+          No data matching the filter "{{ input.value }}"
+        </td>
       </tr>
     </table>
 
-    <mat-paginator [pageSizeOptions]="[10]" [pageSize]="10" [pageIndex]="0" [length]="dataSource.data.length"></mat-paginator>
-
+    <mat-paginator
+      [pageSizeOptions]="[10]"
+      [pageSize]="10"
+      [pageIndex]="0"
+      [length]="dataSource.data.length"
+    ></mat-paginator>
   </div>
 </div>

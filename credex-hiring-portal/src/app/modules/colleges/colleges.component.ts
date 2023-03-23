@@ -1,18 +1,18 @@
-import { Component,OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatIcon } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 import { DataAddEditComponent } from '../../data-add-edit/data-add-edit.component';
-import { CoreService } from '../../core/core.service'
-import { CollegesService } from '../colleges.service'
+import { CoreService } from '../../core/core.service';
+import { CollegesService } from '../colleges.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-colleges',
   templateUrl: './colleges.component.html',
-  styleUrls: ['./colleges.component.scss']
+  styleUrls: ['./colleges.component.scss'],
 })
 export class CollegesComponent implements OnInit {
   displayedColumns: string[] = [
@@ -22,7 +22,7 @@ export class CollegesComponent implements OnInit {
     'CourseOffered',
     'Contact',
     'CurrentAccrediation',
-    'action'
+    'action',
   ];
   dataSource!: MatTableDataSource<any>;
 
@@ -33,17 +33,17 @@ export class CollegesComponent implements OnInit {
   public postJsonVale: any;
 
   constructor(
-    private _dialog: MatDialog,
-    private _empService: CollegesService,
-    private _coreService: ToastrService
+    private dialog: MatDialog,
+    private service: CollegesService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
     this.getCollegesList();
   }
 
-  openAddEditEmpForm() {
-    const dialogRef = this._dialog.open(DataAddEditComponent);
+  openAddEditForm() {
+    const dialogRef = this.dialog.open(DataAddEditComponent);
     dialogRef.afterClosed().subscribe({
       next: (val) => {
         if (val) {
@@ -54,7 +54,7 @@ export class CollegesComponent implements OnInit {
   }
 
   getCollegesList() {
-    this._empService.getCollegesList().subscribe({
+    this.service.getCollegesList().subscribe({
       next: (res) => {
         console.log(res);
         this.dataSource = new MatTableDataSource(res);
@@ -75,10 +75,10 @@ export class CollegesComponent implements OnInit {
   }
 
   deleteCollege(id: number) {
-    this._empService.deleteCollege(id).subscribe({
+    this.service.deleteCollege(id).subscribe({
       next: (res) => {
         console.log(res);
-        this._coreService.success('College deleted!', 'done');
+        this.toastr.success('College deleted!', 'done');
         this.getCollegesList();
       },
       error: console.log,
@@ -86,7 +86,7 @@ export class CollegesComponent implements OnInit {
   }
 
   openEditForm(data: any) {
-    const dialogRef = this._dialog.open(DataAddEditComponent, {
+    const dialogRef = this.dialog.open(DataAddEditComponent, {
       data,
     });
 
@@ -98,8 +98,4 @@ export class CollegesComponent implements OnInit {
       },
     });
   }
-
-
-
 }
-

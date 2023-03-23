@@ -1,7 +1,4 @@
-
-<mat-nav-list style="
-background-color: aliceblue;height: 98%;
-">
+<mat-nav-list style="background-color: aliceblue; height: 98%">
   <div class="profile-card">
     <div class="header">
       <img
@@ -11,24 +8,22 @@ background-color: aliceblue;height: 98%;
         alt="userLogo"
       />
       <h2 style="font-weight: 400">{{ this.emailId }}</h2>
-      <h4 style="color: rgb(67, 80, 201);">{{ this.role }}</h4>
-
+      <h4 style="color: rgb(67, 80, 201)">{{ this.role }}</h4>
     </div>
   </div>
-
 
   <mat-divider></mat-divider>
   <h2
     matSubheader
     *ngIf="userAuthService.roleMatch('Admin')"
-    style="padding-left: 12px; color: rgb(180, 190, 248);"
+    style="padding-left: 12px; color: rgb(180, 190, 248)"
   >
     Management
   </h2>
   <h2
     matSubheader
     *ngIf="userAuthService.roleMatch('Student')"
-    style="padding-left: 12px; color: rgb(180, 190, 248);"
+    style="padding-left: 12px; color: rgb(180, 190, 248)"
   >
     Panel
   </h2>
@@ -41,29 +36,28 @@ background-color: aliceblue;height: 98%;
     >Dashboard</a
   >
 
+  <a
+    mat-list-item
+    *ngIf="userAuthService.roleMatch('Student')"
+    routerLinkActive="list-item-active"
+    routerLink="/home/exam"
+    >Examination</a
+  >
+  <a
+    mat-list-item
+    *ngIf="userAuthService.roleMatch('Student')"
+    routerLinkActive="list-item-active"
+    routerLink="/home/faq"
+    >FAQs</a
+  >
 
   <a
-  mat-list-item
-  *ngIf="userAuthService.roleMatch('Student')"
-  routerLinkActive="list-item-active"
-  routerLink="/home/exam"
-  >Examination</a
->
-<a
-  mat-list-item
-  *ngIf="userAuthService.roleMatch('Student')"
-  routerLinkActive="list-item-active"
-  routerLink="/home/faq"
-  >FAQs</a
->
-
-<a
-  mat-list-item
-  *ngIf="userAuthService.roleMatch('Student')"
-  routerLinkActive="list-item-active"
-  routerLink="/home/contact"
-  >Contact Us</a
->
+    mat-list-item
+    *ngIf="userAuthService.roleMatch('Student')"
+    routerLinkActive="list-item-active"
+    routerLink="/home/contact"
+    >Contact Us</a
+  >
 
   <a
     mat-list-item
@@ -99,7 +93,7 @@ background-color: aliceblue;height: 98%;
   <h2
     matSubheader
     *ngIf="userAuthService.roleMatch('Admin')"
-    style="padding-left: 12px; color: rgb(180, 190, 248);"
+    style="padding-left: 12px; color: rgb(180, 190, 248)"
   >
     HR Approval
   </h2>
@@ -117,9 +111,7 @@ background-color: aliceblue;height: 98%;
     *ngIf="userAuthService.roleMatch('Admin')"
     routerLinkActive="list-item-active"
     routerLink="/home/approval"
-    
   >
     Final Reports
   </a>
-
 </mat-nav-list>

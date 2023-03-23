@@ -1,57 +1,89 @@
-
-  <div class="container mt-5" oncopy="return false;" (blur)="handleBlur()" (focus)="handleFocus()">
-    <mat-card>
-      <div class="logo justify-content-between p-3">
-        <div class="image">
-          <img src="../../../assets/img/credexLogo.jpg" width="90" alt="logo" />
+<div
+  class="container mt-5"
+  oncopy="return false;"
+  (blur)="handleBlur()"
+  (focus)="handleFocus()"
+>
+  <mat-card>
+    <div class="logo justify-content-between p-3">
+      <div class="image">
+        <img src="../../../assets/img/credexLogo.jpg" width="90" alt="logo" />
+      </div>
+    </div>
+    <ng-container *ngIf="!isQuizCompleted">
+      <div class="qchecker justify-content-around py-3">
+        <div class="question-remain">
+          <span style="font-style: italic"
+            >Question {{ currentQuestion + 1 }} of
+            {{ questionList.length }}</span
+          >
+        </div>
+        <div class="timer">
+          <h5>⏱ {{ counter }}s</h5>
         </div>
       </div>
-      <ng-container *ngIf="!isQuizCompleted">
-        <div class="qchecker justify-content-around py-3">
-          <div class="question-remain">
-            <span style="font-style: italic;">Question {{currentQuestion+1}} of {{questionList.length}}</span>
-          </div>
-          <div class="timer">
-            <h5>⏱ {{counter}}s </h5>
-          </div>
+      <mat-progress-bar
+        mode="determinate"
+        [value]="progress"
+      ></mat-progress-bar>
+      <div class="question">
+        <mat-card>
+          <h3>{{ questionList[currentQuestion]?.questionText }}</h3>
+        </mat-card>
+      </div>
+      <div class="options">
+        <mat-list>
+          <mat-list-item
+            *ngFor="let option of questionList[currentQuestion]?.options"
+            (click)="answer(currentQuestion + 1, option)"
+          >
+            <mat-card>{{ option.text }}</mat-card>
+          </mat-list-item>
+        </mat-list>
+      </div>
+      <div class="d-flex">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="nextQuestion(currentQuestion + 1)"
+        >
+          Next
+        </button>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="isQuizCompleted">
+      <div class="row d-flex justify-content-between">
+        <div class="result text-center col-md-6 col-sm-12">
+          <section>
+            <h1>Your test has been submitted.</h1>
+            <h2>Thank you for completing the exam !</h2>
+            <ul>
+              <li>
+                We appreciate the time and effort you have put into this
+                assessment and we hope that you found it to be a fair and
+                informative evaluation of your skills and knowledge.
+              </li>
+              <li>
+                Your exam responses have been submitted and our team will now
+                review them. We will notify you of your results as soon as
+                possible, so please keep an eye on your email inbox for further
+                communication from us.
+              </li>
+              <li>
+                If you have any questions or concerns, please do not hesitate to
+                reach out to us. We are here to support you throughout the
+                hiring process and to ensure that you have the information you
+                need.
+              </li>
+              <li>
+                Once again, thank you for your participation in this online
+                exam. We wish you the best of luck in your career endeavors!
+              </li>
+            </ul>
+          </section>
         </div>
-        <mat-progress-bar mode="determinate" [value]="progress"></mat-progress-bar>
-        <div class="question">
-          <mat-card>
-            <h3>{{questionList[currentQuestion]?.questionText}}</h3>
-          </mat-card>
-        </div>
-        <div class="options">
-          <mat-list>
-            <mat-list-item *ngFor="let option of questionList[currentQuestion]?.options" (click)="answer(currentQuestion+1,option)">
-              <mat-card >{{option.text}}</mat-card>
-            </mat-list-item>
-          </mat-list>
-        </div>
-        <div class="d-flex">
-          <!-- <button mat-raised-button [disabled]="currentQuestion===0" (click)="previousQuestion()">
-            Previous
-          </button> -->
-          <button mat-raised-button color="primary" (click)="nextQuestion(currentQuestion+1)">
-            Next
-          </button>
-        </div>
-      </ng-container>
-      
-      <ng-container *ngIf="isQuizCompleted">
-        <div class="row d-flex justify-content-between">
-          <div class="result text-center col-md-6 col-sm-12">
-            
-              <section>
-                <h1>Your test has been submitted.</h1>
-                <h2>Thank you for completing the exam ! </h2>
-               <ul>
-                <li>We appreciate the time and effort you have put into this assessment and we hope that you found it to be a fair and informative evaluation of your skills and knowledge.</li>
-                <li>Your exam responses have been submitted and our team will now review them. We will notify you of your results as soon as possible, so please keep an eye on your email inbox for further communication from us.</li>
-                <li>If you have any questions or concerns, please do not hesitate to reach out to us. We are here to support you throughout the hiring process and to ensure that you have the information you need.</li>
-                <li>Once again, thank you for your participation in this online exam. We wish you the best of luck in your career endeavors!</li>
-              </ul> 
-            </section>
-          </div>
-        </div>
-      </ng-container>   
+      </div>
+    </ng-container>
+  </mat-card>
+</div>

@@ -1,15 +1,21 @@
-import { Component, AfterViewInit, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  ElementRef,
+  QueryList,
+  ViewChildren,
+} from '@angular/core';
 
 @Component({
   selector: 'app-faq',
   templateUrl: './faq.component.html',
-  styleUrls: ['./faq.component.scss']
+  styleUrls: ['./faq.component.scss'],
 })
 export class FaqComponent implements AfterViewInit {
   @ViewChildren('accordionButton') accordionButtons: QueryList<ElementRef>;
 
   ngAfterViewInit(): void {
-    this.accordionButtons.forEach(button => {
+    this.accordionButtons.forEach((button) => {
       button.nativeElement.addEventListener('click', this.toggleAccordion);
     });
   }
@@ -18,7 +24,7 @@ export class FaqComponent implements AfterViewInit {
     const targetButton = event.target as HTMLButtonElement;
     const itemToggle = targetButton.getAttribute('aria-expanded');
 
-    this.accordionButtons.forEach(button => {
+    this.accordionButtons.forEach((button) => {
       button.nativeElement.setAttribute('aria-expanded', 'false');
     });
 

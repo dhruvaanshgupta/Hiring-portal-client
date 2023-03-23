@@ -6,7 +6,7 @@ import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 @Component({
   selector: 'app-student-contact',
   templateUrl: './student-contact.component.html',
-  styleUrls: ['./student-contact.component.scss']
+  styleUrls: ['./student-contact.component.scss'],
 })
 export class StudentContactComponent implements OnInit {
   form: FormGroup;
@@ -17,7 +17,7 @@ export class StudentContactComponent implements OnInit {
     this.form = this.fb.group({
       user_name: ['', Validators.required],
       user_email: ['', [Validators.required, Validators.email]],
-      message: ['', Validators.required]
+      message: ['', Validators.required],
     });
     emailjs.init('WdcU-jA-FDRTSVUZV');
   }
@@ -28,13 +28,15 @@ export class StudentContactComponent implements OnInit {
 
     const serviceID = 'service_s1xvbg9';
     const templateID = 'template_e9juef1';
-    emailjs.sendForm(serviceID, templateID, 'contact-form')
-      .then((response: EmailJSResponseStatus) => {
+    emailjs.sendForm(serviceID, templateID, 'contact-form').then(
+      (response: EmailJSResponseStatus) => {
         btn.value = 'Send Email';
         alert('Sent!');
-      }, (error) => {
+      },
+      (error) => {
         btn.value = 'Send Email';
         alert(JSON.stringify(error));
-      });
+      }
+    );
   }
 }

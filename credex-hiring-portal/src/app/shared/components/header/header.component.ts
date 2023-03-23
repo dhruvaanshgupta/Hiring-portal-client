@@ -5,25 +5,22 @@ import { AuthService } from 'src/app/auth/auth.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
-  
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
   @Output() toggleSideBarForMe: EventEmitter<any> = new EventEmitter();
-  constructor(public userAuthService: AuthService,private router: Router){}
-  logout(){
+  constructor(public userAuthService: AuthService, private router: Router) {}
+  logout() {
     sessionStorage.clear();
     this.router.navigate(['auth']);
   }
 
-  ngOnInit(){}
+  ngOnInit() {}
 
-  toggleSideBar(){
+  toggleSideBar() {
     this.toggleSideBarForMe.emit();
     setTimeout(() => {
-      window.dispatchEvent(
-        new Event('resize')
-      );
+      window.dispatchEvent(new Event('resize'));
     }, 300);
   }
 }

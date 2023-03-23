@@ -2,31 +2,30 @@ import { Component, OnInit, Input } from '@angular/core';
 import * as echarts from 'echarts';
 import { DashboardService } from '../../../modules/dashboard.service';
 
-
 @Component({
   selector: 'app-widget-pie',
   templateUrl: './pie.component.html',
-  styleUrls: ['./pie.component.scss']
+  styleUrls: ['./pie.component.scss'],
 })
 export class PieComponent implements OnInit {
-
-  constructor(private dashboardService: DashboardService){}
+  constructor(private dashboardService: DashboardService) {}
 
   ngOnInit(): void {
     const chartDom = document.getElementById('main')!;
     const myChart = echarts.init(chartDom);
 
-    this.dashboardService.pieChart().subscribe(data => {
+    this.dashboardService.pieChart().subscribe((data) => {
       const option = {
         title: {
           text: 'Offers Made',
-          left: 'center'
+          left: 'center',
         },
         tooltip: {
-          trigger: 'item'
-        },legend: {
+          trigger: 'item',
+        },
+        legend: {
           orient: 'vertical',
-          left: 'right'
+          left: 'right',
         },
         series: [
           {
@@ -38,11 +37,11 @@ export class PieComponent implements OnInit {
               itemStyle: {
                 shadowBlur: 10,
                 shadowOffsetX: 0,
-                shadowColor: 'rgba(0, 0, 0, 0.5)'
-              }
-            }
-          }
-        ]
+                shadowColor: 'rgba(0, 0, 0, 0.5)',
+              },
+            },
+          },
+        ],
       };
       myChart.setOption(option);
     });
@@ -101,4 +100,3 @@ export class PieComponent implements OnInit {
   //   });
   // }
 }
- 
