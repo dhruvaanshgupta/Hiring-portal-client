@@ -52,9 +52,9 @@ export class StudentsComponent implements OnInit {
 
   
 
-  openDialog(id: number): void {
+  openDialog(userId: number): void {
     const dialogRef = this.dialog.open(StudentDetailsComponent, {
-      data: { id },
+      data: { userId },
     });
   }
 

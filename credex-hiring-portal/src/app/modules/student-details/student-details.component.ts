@@ -14,15 +14,15 @@ export class StudentDetailsComponent implements OnInit {
   empForm: FormGroup<any>;
 
   studentdata: any;
-  public id: number;
+  public userId: number;
 
   constructor(
     private dialogRef: MatDialogRef<StudentDetailsComponent>,
     private formBuilder: FormBuilder,
     private service: StudentDetailsService,
-    @Inject(MAT_DIALOG_DATA) public data: { id: number }
+    @Inject(MAT_DIALOG_DATA) public data: { userId: number }
   ) {
-    this.id = data.id;
+    this.userId = data.userId;
     this.empForm = this.formBuilder.group({});
   }
 
@@ -31,9 +31,10 @@ export class StudentDetailsComponent implements OnInit {
   }
 
   getStudentDetails() {
-    this.service.getStudentDetailsById(this.id).subscribe((response) => {
+    console.log(this.data.userId)
+    console.log(this.userId);
+    this.service.getStudentDetailsById(this.userId).subscribe((response) => {
       this.studentdata = response;
-      console.log(response);
     });
   }
 }

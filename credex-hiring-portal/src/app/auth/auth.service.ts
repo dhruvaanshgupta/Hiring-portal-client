@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Recieve } from '../../interfaces/recieve.interface';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,46 +15,54 @@ export class AuthService {
     private http:HttpClient, 
     private router: Router) { }
 
-  apiurl='http://localhost:3000/users/'
+  // apiurl='http://localhost:3000/users/'
+  apiurl = 'http://localhost:8080/hiring_portal_war/user'
+
+  requestHeader = new HttpHeaders();
 
   GetAll(){
-    return this.http.get<any>(this.apiurl);
+    return this.http.get<any>(this.apiurl+'/get');
   }
 
   getAllStudentsCount() {
-    return this.http.get<any[]>(this.apiurl).pipe(
+    return this.http.get<any[]>(this.apiurl+'/get').pipe(
       map(users => users.filter(user => user.roleId === "Student").length)
     );
   }
 
-  Getbycode(code:any){
-    return this.http.get(`${this.apiurl}?emailId=${code}`);
+  getUserById(userId: any): Observable<any> {
+    return this.http.get(this.apiurl +'/getById/'+ userId);
   }
 
   GetUserbyCode(emailId:any){
     return this.http.get(this.apiurl+'/'+emailId);
   }
 
-  GetUser(id:any){
-    return this.http.get<Recieve>(this.apiurl+id);
-  }
+  
 
   GetAllRole(){
     return this.http.get<Recieve>('http://localhost:8080/hiring_portal_war/role/get');
   }
 
   ProceedRegister(inputdata?:any){
-    return this.http.post<any>(this.apiurl,inputdata);
+    return this.http.post<any>(this.apiurl+'/register',inputdata);
   }
-  Updateuser(id:any,inputdata:any){
-    return this.http.put<Recieve>(this.apiurl+id,inputdata)
+
+  public login(loginData){
+    return this.http.post('http://localhost:8080/hiring_portal_war/api/login', loginData, {headers: this.requestHeader});
+  }
+
+
+
+  Updateuser(inputdata:any){
+    return this.http.put<Recieve>(this.apiurl + '/update',inputdata)
   }
   UpdateUserByEmail(code:string, inputdata: any) {
     return this.http.put<Recieve>(`${this.apiurl}?emailId=${code}`, inputdata);
   }
 
   IsloggedIn(){
-    return sessionStorage.getItem('emailId')!;
+    return sessionStorage.getItem('emailId')! && sessionStorage.getItem('token');
   }
  public GetUserrole(){
     return sessionStorage.getItem('roleId')!=null?sessionStorage.getItem('roleId')?.toString():'';
@@ -65,6 +74,10 @@ export class AuthService {
 
   public getToken(): string {
     return localStorage.getItem('jwtToken');
+  }
+
+  public setRoles(roleId : string){
+    sessionStorage.setItem("roleId",roleId)
   }
 
   navigate(){

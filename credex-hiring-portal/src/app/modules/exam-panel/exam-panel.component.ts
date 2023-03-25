@@ -57,16 +57,16 @@ export class ExamPanelComponent implements OnInit {
   submit() {
     if (this.registerForm.valid) {
       const idstring = sessionStorage.getItem('id');
-      const id = parseInt(idstring, 10);
-      this.service.GetUser(id).subscribe((res) => {
+      const userId = parseInt(idstring, 10);
+      this.service.getUserById(userId).subscribe((res) => {
         this.editdata = res;
-
+        this.editdata.userId = userId;
         this.editdata.experience = this.registerForm.get('experience').value;
         this.editdata.language = this.registerForm.get('language').value;
         this.editdata.skills = this.registerForm.get('skills').value;
         this.editdata.resumeLink = this.registerForm.get('resumeLink').value;
 
-        this.service.Updateuser(id, this.editdata).subscribe();
+        this.service.Updateuser(this.editdata).subscribe();
       });
     } else {
       this.registerForm.markAllAsTouched();

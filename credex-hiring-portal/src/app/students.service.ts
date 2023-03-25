@@ -84,6 +84,6 @@ export class StudentService {
   constructor(private http: HttpClient) {}
 
   getStudentList(): Observable<any> {
-    return this.http.get('http://localhost:3000/users');
+    return this.http.get('http://localhost:8080/hiring_portal_war/user/get');
   }
 }

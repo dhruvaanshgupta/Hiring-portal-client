@@ -43,7 +43,6 @@ export class ExamPortalComponent implements OnInit {
 
   getAllQuestion() {
     this.questionService.getQuestionJson().subscribe((res) => {
-      console.log(res[0].questions);
       this.questionList = res[0].questions;
     });
   }
@@ -65,14 +64,14 @@ export class ExamPortalComponent implements OnInit {
     }
   }
 
-  completionChecker(currentQno: number){
+  completionChecker(currentQno: number) {
     if (currentQno === this.questionList.length) {
       this.isQuizCompleted = true;
       localStorage.setItem('isQuizCompleted', JSON.stringify(true));
       this.stopCounter();
-      const id = +sessionStorage.getItem('id');
-      this.questionService.updateUserPoints(this.points, id).subscribe(() => {
-      });
+      const userId2 = +sessionStorage.getItem('id');
+      const data = { userId2, scorecard: this.points };
+      this.questionService.updateUserPoints(data).subscribe(() => {});
     }
   }
 
@@ -171,9 +170,9 @@ export class ExamPortalComponent implements OnInit {
     this.isQuizCompleted = true;
     localStorage.setItem('isQuizCompleted', JSON.stringify(true));
     this.stopCounter();
-    const id = +sessionStorage.getItem('id');
-    this.questionService.updateUserPoints(this.points, id).subscribe(() => {
-    });
+    const userId2 = +sessionStorage.getItem('id');
+    const data = { userId2, scorecard: this.points };
+    this.questionService.updateUserPoints(data).subscribe(() => {});
 
     window.removeEventListener('blur', this.handleBlur.bind(this));
     window.removeEventListener('focus', this.handleFocus.bind(this));

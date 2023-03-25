@@ -19,7 +19,7 @@
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
         <td mat-cell *matCellDef="let row">
-          {{ row.id }}
+          {{ row.userId }}
         </td>
       </ng-container>
 
@@ -67,7 +67,7 @@
       <ng-container matColumnDef="details">
         <th mat-header-cell *matHeaderCellDef> Details </th>
         <td mat-cell *matCellDef="let element">
-          <button mat-icon-button (click)="openDialog(element.id)">
+          <button mat-icon-button (click)="openDialog(element.userId)">
             <mat-icon>info</mat-icon>
           </button>
         </td>

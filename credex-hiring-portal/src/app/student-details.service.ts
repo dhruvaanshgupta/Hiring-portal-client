@@ -11,9 +11,9 @@ export class StudentDetailsService {
   }
 
   constructor(private http: HttpClient) { }
-  apiUrl = 'http://localhost:3000/users';
+  apiUrl = 'http://localhost:8080/hiring_portal_war/user/getById/';
 
-  getStudentDetailsById(id: any): Observable<any> {
-    return this.http.get(this.apiUrl + '/' + id);
+  getStudentDetailsById(userId: any): Observable<any> {
+    return this.http.get(this.apiUrl + userId);
   }
 }

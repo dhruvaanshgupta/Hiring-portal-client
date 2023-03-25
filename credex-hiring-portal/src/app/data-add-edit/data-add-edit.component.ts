@@ -12,13 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class DataAddEditComponent implements OnInit {
   empForm: FormGroup;
 
-  education: string[] = [
-    'Matric',
-    'Diploma',
-    'Intermediate',
-    'Graduate',
-    'Post Graduate',
-  ];
+
 
   constructor(
     private fb: FormBuilder,
@@ -40,7 +34,6 @@ export class DataAddEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.empForm.patchValue(this.data);
-    this.empForm.patchValue(this.data.collegeId);
   }
 
   onFormSubmit() {

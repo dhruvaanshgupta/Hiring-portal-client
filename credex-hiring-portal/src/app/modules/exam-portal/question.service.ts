@@ -14,10 +14,9 @@ export class QuestionService {
     return this.http.get<any>("http://localhost:3000/questions");
   }
 
-  updateUserPoints(points: number, id: number) {
-    const url = `http://localhost:3000/scorecard/${id}`;
-    const body = { points };
-    return this.http.put(url, body);
+  updateUserPoints(data) {
+    const url = `http://localhost:8080/hiring_portal_war/score/create`;
+    return this.http.post(url, data);
   }
   
   
