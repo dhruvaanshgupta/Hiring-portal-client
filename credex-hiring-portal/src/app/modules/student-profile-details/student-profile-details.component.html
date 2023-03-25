@@ -1,0 +1,35 @@
+<div mat-dialog-title class="title">
+  <h1>Student Details</h1>
+</div>
+
+<div class="bootstrap-wrapper">
+  <mat-dialog-content class="typography">
+    <mat-card>
+      <mat-dialog-content class="mat-typography">
+        <h3>
+          <b>Name: </b> {{ studentdata.FirstName }} {{ studentdata.LastName }}
+        </h3>
+      </mat-dialog-content>
+      <mat-dialog-content class="mat-typography">
+        <h3><b>College Name: </b> {{ studentdata.collegeName }}</h3>
+      </mat-dialog-content>
+      <mat-dialog-content class="mat-typography">
+        <h3><b>Email: </b> {{ studentdata.email }}</h3>
+      </mat-dialog-content>
+      <mat-dialog-content class="mat-typography">
+        <h3><b>Contact: </b> {{ studentdata.contact }}</h3>
+      </mat-dialog-content>
+      <mat-dialog-content class="mat-typography">
+        <h3><b>Language: </b> {{ studentdata.language }}</h3>
+      </mat-dialog-content>
+      <mat-dialog-content class="mat-typography">
+        <h3><b>Skills: </b> {{ studentdata.skills }}</h3>
+      </mat-dialog-content>
+      <div>
+        <mat-dialog-actions align="center">
+          <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+        </mat-dialog-actions>
+      </div>
+    </mat-card>
+  </mat-dialog-content>
+</div>
