@@ -34,12 +34,6 @@ export class AuthService {
     return this.http.get(this.apiurl +'/getById/'+ userId);
   }
 
-  GetUserbyCode(emailId:any){
-    return this.http.get(this.apiurl+'/'+emailId);
-  }
-
-  
-
   GetAllRole(){
     return this.http.get<Recieve>('http://localhost:8080/hiring_portal_war/role/get');
   }
@@ -56,9 +50,6 @@ export class AuthService {
 
   Updateuser(inputdata:any){
     return this.http.put<Recieve>(this.apiurl + '/update',inputdata)
-  }
-  UpdateUserByEmail(code:string, inputdata: any) {
-    return this.http.put<Recieve>(`${this.apiurl}?emailId=${code}`, inputdata);
   }
 
   IsloggedIn(){
