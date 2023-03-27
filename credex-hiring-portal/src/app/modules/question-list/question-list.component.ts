@@ -13,7 +13,6 @@ export class QuestionListComponent implements OnInit {
   
   ngOnInit() {
     this.http.get('http://localhost:3000/questions').subscribe((questions: any[]) => {
-      console.log('Questions fetched successfully:', questions);
       this.questions = questions;
     });
   }

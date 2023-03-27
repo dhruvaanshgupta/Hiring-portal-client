@@ -5,10 +5,9 @@ import HC_exporting from 'highcharts/modules/exporting';
 @Component({
   selector: 'app-widget-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
-
   @Input()
   label: string;
   @Input()
@@ -20,7 +19,7 @@ export class CardComponent implements OnInit {
   Highcharts = Highcharts;
   chartOptions = {};
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.chartOptions = {
@@ -29,23 +28,23 @@ export class CardComponent implements OnInit {
         backgroundColor: null,
         borderWidth: 0,
         margin: [2, 2, 2, 2],
-        height: 60
+        height: 60,
       },
       title: {
-        text: null
+        text: null,
       },
       subtitle: {
-        text: null
+        text: null,
       },
       tooltip: {
         split: true,
-        outside: true
+        outside: true,
       },
       legend: {
-        enabled: false
+        enabled: false,
       },
       credits: {
-        enabled: false
+        enabled: false,
       },
       exporting: {
         enabled: false,
@@ -55,35 +54,34 @@ export class CardComponent implements OnInit {
           enabled: false,
         },
         title: {
-          text: null
+          text: null,
         },
         startOnTick: false,
         endOnTick: false,
-        tickOptions: []
+        tickOptions: [],
       },
       yAxis: {
         labels: {
           enabled: false,
         },
         title: {
-          text: null
+          text: null,
         },
         startOnTick: false,
         endOnTick: false,
-        tickOptions: []
+        tickOptions: [],
       },
-      series: [{
-        data: this.data
-      }]
+      series: [
+        {
+          data: this.data,
+        },
+      ],
     };
 
     HC_exporting(Highcharts);
 
     setTimeout(() => {
-      window.dispatchEvent(
-        new Event('resize')
-      );
+      window.dispatchEvent(new Event('resize'));
     }, 300);
   }
-
 }

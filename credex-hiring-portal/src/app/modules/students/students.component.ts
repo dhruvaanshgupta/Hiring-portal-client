@@ -25,7 +25,7 @@ export class StudentsComponent implements OnInit {
 
   dataSource: any;
   userdata: any;
-  
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -34,7 +34,9 @@ export class StudentsComponent implements OnInit {
     private dialog: MatDialog,
     private coreService: CoreService,
     private http: HttpClient
-  ) {this.dataSource = new MatTableDataSource([]);}
+  ) {
+    this.dataSource = new MatTableDataSource([]);
+  }
 
   ngOnInit(): void {
     this.loadUser();
@@ -42,7 +44,7 @@ export class StudentsComponent implements OnInit {
 
   loadUser() {
     this.studentService.getStudentList().subscribe((res) => {
-      this.userdata = res.filter(user => user.roleId === 'Student'); 
+      this.userdata = res.filter((user) => user.roleId === 'Student');
       this.dataSource = new MatTableDataSource(this.userdata);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -50,15 +52,13 @@ export class StudentsComponent implements OnInit {
     });
   }
 
-  
-
   openDialog(userId: number): void {
     const dialogRef = this.dialog.open(StudentDetailsComponent, {
       data: { userId },
     });
   }
 
-  applyFilter(event: Event){
+  applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
     if (this.dataSource.paginator) {

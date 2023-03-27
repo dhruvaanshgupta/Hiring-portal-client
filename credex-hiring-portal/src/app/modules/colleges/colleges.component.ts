@@ -56,7 +56,6 @@ export class CollegesComponent implements OnInit {
   getCollegesList() {
     this.service.getCollegesList().subscribe({
       next: (res) => {
-        console.log(res);
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
@@ -77,7 +76,6 @@ export class CollegesComponent implements OnInit {
   deleteCollege(id: number) {
     this.service.deleteCollege(id).subscribe({
       next: (res) => {
-        console.log(res);
         this.toastr.success('College deleted!', 'done');
         this.getCollegesList();
       },

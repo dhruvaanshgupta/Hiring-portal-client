@@ -1,10 +1,9 @@
-
 import { Component, Injectable, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FinalReportsService } from './final-reports.service'; 
+import { FinalReportsService } from './final-reports.service';
 import { StudentDetailsComponent } from '../student-details/student-details.component';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/auth/auth.service';
@@ -35,7 +34,7 @@ export class FinalReportsComponent {
     private dialog: MatDialog,
     private service: FinalReportsService,
     private toastr: ToastrService,
-    private authService:AuthService
+    private authService: AuthService
   ) {}
   userdata!: MatTableDataSource<any>;
   ngOnInit() {
@@ -44,10 +43,8 @@ export class FinalReportsComponent {
   getReportData() {
     this.service.getReportData().subscribe((response) => {
       const reportData = [];
-      console.log(response);
-  
+
       for (const report of response) {
-        console.log(report.userId2);
         this.authService.getUserById(report.userId2).subscribe((user) => {
           const reportRow = {
             id: report.userId2,
@@ -56,11 +53,10 @@ export class FinalReportsComponent {
             technical_score2: report.technical_score2,
             scorecard: report.scorecard,
             feedback: report.feedback,
-            status: user.status
+            status: user.status,
           };
           reportData.push(reportRow);
-          console.log(reportData);
-  
+
           if (reportData.length === response.length) {
             this.userdata = new MatTableDataSource(reportData);
             this.userdata.sort = this.sort;
@@ -70,7 +66,7 @@ export class FinalReportsComponent {
       }
     });
   }
-  
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.userdata.filter = filterValue.trim().toLowerCase();
@@ -80,37 +76,30 @@ export class FinalReportsComponent {
   }
 
   openDetails(userId: number): void {
-    console.log(userId);
     const dialog = this.dialog.open(StudentDetailsComponent, {
       data: { userId },
     });
   }
 
-  updateStatus(id: number,status:boolean) {
-
+  updateStatus(id: number, status: boolean) {
     this.authService.getUserById(id).subscribe((user) => {
       const inputData = {
         userId: id,
         firstName: user.firstName,
         lastName: user.lastName,
         emailId: user.emailId,
-        contact:user.contact,
-        experience:user.experience,
-        language:user.language,
-        skills:user.skills,
-        resumeLink:user.resumeLink,
-        status: status
+        contact: user.contact,
+        experience: user.experience,
+        language: user.language,
+        skills: user.skills,
+        resumeLink: user.resumeLink,
+        status: status,
       };
-  
-      console.log(inputData);
 
-
-    
-    this.authService.Updateuser(inputData).subscribe((response) => {
-      this.getReportData();
-      this.toastr.success('Status updated successfully');
+      this.authService.Updateuser(inputData).subscribe((response) => {
+        this.getReportData();
+        this.toastr.success('Status updated successfully');
+      });
     });
-  });
   }
-  
 }

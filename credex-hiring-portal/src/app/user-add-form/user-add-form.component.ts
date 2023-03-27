@@ -38,9 +38,7 @@ export class UserAddFormComponent implements OnInit {
     this.userForm.patchValue(this.data);
   }
   onFormSubmit() {
-    console.log(this.userForm);
     if (this.userForm.valid) {
-      console.log('entering loop');
       this.service.ProceedRegister(this.userForm.value).subscribe({
         next: (val: any) => {
           this.toastr.success('User added successfully');

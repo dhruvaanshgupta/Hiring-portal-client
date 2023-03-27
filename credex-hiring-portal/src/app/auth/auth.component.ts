@@ -77,44 +77,20 @@ export class AuthComponent implements OnInit {
     password: this.builder.control('', Validators.required),
   });
 
-  // proceedLogin() {
-  //   if (this.loginform.valid) {
-  //     this.service
-  //       .Getbycode(this.loginform.value.emailId)
-  //       .subscribe((users: any[]) => {
-  //         const user = users.find(
-  //           (u) => u.emailId === this.loginform.value.emailId
-  //         );
-  //         console.log(user);
-  //         if (
-  //           user &&
-  //           user.password.trim() === this.loginform.value.password.trim()
-  //         ) {
-  //           sessionStorage.setItem('emailId', user.emailId);
-  //           sessionStorage.setItem('roleId', user.roleId);
-  //           sessionStorage.setItem('id', user.id);
-  //           this.service.navigate();
-  //           //funtion call karega jo services mein karna
-  //         } else {
-  //           this.toastr.error('Invalid Credentials');
-  //         }
-  //       });
-  //   }
-  // }
+ 
 
   proceedLogin(loginform){
     this.service.login(loginform.value).subscribe(
       (response:any)=>{
-        console.log(response.token);
-        console.log(response.roleId);
         sessionStorage.setItem('emailId', response.emailId);
         sessionStorage.setItem('roleId', response.roleId);
         sessionStorage.setItem('id', response.userId);
         sessionStorage.setItem('token', response.token)
         this.service.navigate();
+        this.toastr.success("Welcome User");
       },
       (error)=>{
-        console.log(error);
+        this.toastr.warning("Invalid Credentials");
       }
     );
   }

@@ -19,12 +19,10 @@ export class DashboardService {
   }
 
   getTotalColleges(): Observable<number> {
-    // call the API endpoint to get the total number of colleges
     return this.http.get<number>('http://localhost:8080/hiring_portal_war/Dashboard/getCollegeCount');
   }
 
   getSelectedStudents(): Observable<number> {
-    // call the API endpoint to get the total number of colleges
     return this.http.get<number>('http://localhost:8080/hiring_portal_war/Dashboard/SelectedStudents');
   }
 
@@ -35,8 +33,6 @@ export class DashboardService {
       map((data: any) => {
         const total = data.registeredStudentCount;
         const selected = data.selectedStudentCount;
-        console.log(total);
-        console.log(selected);
         const notSelected = total - selected;
         return [
           {

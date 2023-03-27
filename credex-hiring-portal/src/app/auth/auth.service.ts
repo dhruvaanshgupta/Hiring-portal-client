@@ -77,7 +77,6 @@ export class AuthService {
       this.router.navigate(['home/dashboard']);
     }
     else if(role === 'Student'){
-      console.log(role);
       this.router.navigate(['home/exam']);
     }
     // else (role === 'recruiter'){

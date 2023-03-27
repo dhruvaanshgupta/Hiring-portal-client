@@ -4,7 +4,6 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { StudentDetailsService } from '../../student-details.service';
 import { StudentService } from '../../students.service';
 
-
 @Component({
   selector: 'app-student-details',
   templateUrl: './student-details.component.html',
@@ -31,11 +30,8 @@ export class StudentDetailsComponent implements OnInit {
   }
 
   getStudentDetails() {
-    console.log(this.data.userId)
-    console.log(this.userId);
     this.service.getStudentDetailsById(this.userId).subscribe((response) => {
       this.studentdata = response;
     });
   }
 }
-

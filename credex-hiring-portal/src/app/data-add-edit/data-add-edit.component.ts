@@ -38,7 +38,6 @@ export class DataAddEditComponent implements OnInit {
 
   onFormSubmit() {
     if (this.empForm.valid) {
-      console.log(this.empForm.value);
       if (this.data) {
         this.empService
           .updateCollege(this.empForm.value)

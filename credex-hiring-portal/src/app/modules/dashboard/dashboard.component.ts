@@ -26,7 +26,6 @@ export class DashboardComponent implements OnInit {
     this.cards = this.dashboardService.cards();
     this.pieChart = this.dashboardService.pieChart();
     this.pieChart.subscribe((data) => {
-      console.log(data);
     });
     this.userRole = sessionStorage.getItem('roleId');
 
