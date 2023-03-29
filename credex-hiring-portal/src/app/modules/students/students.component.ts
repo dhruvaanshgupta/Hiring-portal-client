@@ -16,9 +16,8 @@ import { HttpClient } from '@angular/common/http';
 export class StudentsComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
-    'emailId',
     'firstName',
-    'lastName',
+    'emailId',
     'status',
     'details',
   ];

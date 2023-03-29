@@ -1,8 +1,11 @@
+*{
+  font-size: 18px;
+}
 a:hover {
     color: rgb(255, 153, 0);
     cursor: pointer;
   }
-  .main-body{
+  .mat-elevation-z8{
     padding-top: 20px;
       margin: 0 auto;
       max-width: 1348px;
@@ -15,3 +18,9 @@ a:hover {
       gap: 5px;
     }
 
+    th{
+      border-top: 1px solid gray;
+      border-bottom: 1px solid gray;
+      background: #eee;
+    box-shadow: 0 8px 8px -4px 
+    }
